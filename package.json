@@ -33,6 +33,7 @@
     "@devacademy/eslint-config": "^1.10.1",
     "express": "^4.17.2",
     "knex": "^2.5.1",
+    "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.6",
     "sqlite3": "^5.1.6",
     "superagent": "^10.2.1"
