@@ -1,0 +1,100 @@
+:root {
+  --font-blue: #64a5a7;
+  --font-pink: #c586c0;
+  --font-magenta: #dd0b6b;
+  --font-yellow: #f6d04d;
+  --font-orange: #e4742e;
+
+  --background-periwinkle: #bfb3fb;
+}
+
+@font-face {
+  font-family: CUBANO;
+  src: url('fonts/CUBANO.TTF');
+}
+
+.app {
+  background-color: var(--background-periwinkle);
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+}
+
+h1,h2,h3 {
+  font-family: CUBANO;  
+  margin: 0px;
+  padding: 2rem;  
+}
+
+h1 {
+  font-size: 12vw;
+  line-height: 12vw;
+  color: var(--font-yellow);
+  text-shadow: .6vw .8vw var(--font-magenta);  
+}
+
+h2 {
+  font-size: 7vw;
+  color: var(--font-magenta); 
+}
+
+a {
+  font-family: CUBANO;  
+  font-size: 3vw;
+  text-decoration: none;
+  color: var(--font-yellow);
+  transition: color .2s ease;
+}
+a:hover {
+  color: var(--font-orange);
+  transition: color .2s ease;
+}
+
+
+// Home Page --Desktop
+.home-container {
+  height: 100%;
+  background-image: url('/client/public/MyWebsiteMockup.png');
+  background-size: cover;
+
+  .title-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    width: 80%;
+
+    h1 {
+      cursor: default;
+      padding: 0px;
+      transition: color .2s ease;
+      transition: transform .1s ease;
+    }
+    h1:hover {
+      transform: translate(0px, 1rem);
+      transition: color .2s ease;
+      transition: transform .1s ease;
+    }
+    h1:nth-child(4n + 1):hover {
+      color: var(--font-orange);
+    }
+    h1:nth-child(4n + 2):hover {
+      color: var(--font-blue);
+    }
+    h1:nth-child(4n + 3):hover {
+      color: var(--font-magenta);
+    }
+    h1:nth-child(4n + 4):hover {
+      color: var(--font-pink);
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 1vw;
+    margin-left: 2rem;
+  }
+
+}
