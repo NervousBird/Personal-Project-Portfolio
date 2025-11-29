@@ -53,6 +53,70 @@ a:hover {
   transition: color .2s ease;
 }
 
+nav {
+  display: flex;
+  gap: 1vw;
+  margin-left: 2rem;
+}
+
+button {
+  font-family: CUBANO;
+  font-size: 1.7vw;
+  text-align: center;
+  height: 2vw;
+  color: white;
+  border: none;
+  background-color: transparent;
+  transition: color .2s ease;
+}
+button:hover {
+  color: var(--font-yellow);
+  transition: color .2s ease;
+}
+
+main {
+  h1 {
+    cursor: default;
+    padding: 0px;
+    transition: color .2s ease;
+    transition: transform .1s ease;
+  }
+  h1:hover {
+    transform: translate(0px, 1rem);
+    transition: color .2s ease, transform .1s ease;
+  }
+  h1:nth-child(4n + 1):hover {
+    color: var(--font-orange);
+  }
+  h1:nth-child(4n + 2):hover {
+    color: var(--font-blue);
+  }
+  h1:nth-child(4n + 3):hover {
+    color: var(--font-magenta);
+  }
+  h1:nth-child(4n + 4):hover {
+    color: var(--font-pink);
+  }
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+
+  nav {
+    gap: 3vw;
+    margin: 0px;
+
+    a {
+      font-size: 3vw;
+      color: white;
+    }
+    a:hover {
+      color: var(--font-magenta);
+    }
+  }
+}
 
 // Home Page --Desktop
 .home-container {
@@ -65,35 +129,37 @@ a:hover {
     flex-wrap: wrap;
     padding: 2rem;
     width: 80%;
-
-    h1 {
-      cursor: default;
-      padding: 0px;
-      transition: color .2s ease;
-      transition: transform .1s ease;
-    }
-    h1:hover {
-      transform: translate(0px, 1rem);
-      transition: color .2s ease, transform .1s ease;
-    }
-    h1:nth-child(4n + 1):hover {
-      color: var(--font-orange);
-    }
-    h1:nth-child(4n + 2):hover {
-      color: var(--font-blue);
-    }
-    h1:nth-child(4n + 3):hover {
-      color: var(--font-magenta);
-    }
-    h1:nth-child(4n + 4):hover {
-      color: var(--font-pink);
-    }
   }
 
   .nav {
     display: flex;
-    gap: 1vw;
     margin-left: 2rem;
+    gap: 2rem;
+  }
+}
+
+// Portfolio Page -- Desktop
+.portfolio-container {
+  header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
   }
 
+  .portfolio-categories-container {
+    background-image: url('/website_illustrations.png');
+    background-size: cover;
+    background-position: center;    
+    height: 25vw;
+    max-width: 100%;
+    transition: background-image .2s ease;
+    margin: 1rem 0rem 1rem 0rem;
+
+    div {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 90%;
+    }
+  }
 }
