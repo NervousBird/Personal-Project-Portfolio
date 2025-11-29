@@ -57,7 +57,7 @@ a:hover {
 // Home Page --Desktop
 .home-container {
   height: 100%;
-  background-image: url('/client/public/MyWebsiteMockup.png');
+  background-image: url('/MyWebsiteMockup.png');
   background-size: cover;
 
   .title-container {
@@ -74,8 +74,7 @@ a:hover {
     }
     h1:hover {
       transform: translate(0px, 1rem);
-      transition: color .2s ease;
-      transition: transform .1s ease;
+      transition: color .2s ease, transform .1s ease;
     }
     h1:nth-child(4n + 1):hover {
       color: var(--font-orange);
