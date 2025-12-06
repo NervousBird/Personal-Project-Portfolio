@@ -5,6 +5,9 @@ function Home() {
 
   return (
     <main className="home-container">
+      <div className="woman-container">
+        <img src={"/Website_woman.png"} alt="woman"></img>
+      </div>
       <header className="title-container">
         {titleArray.map((letter, idx) => (
           <h1 key={`${letter}-${idx}`} className="letter">{letter}</h1>

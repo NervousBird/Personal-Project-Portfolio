@@ -1,4 +1,7 @@
 :root {
+  --color-black: #1d1710;
+  --color-white: #f5f3ee;
+
   --font-blue: #64a5a7;
   --font-pink: #c586c0;
   --font-magenta: #dd0b6b;
@@ -134,8 +137,26 @@ main {
 .home-container {
   min-height: 100vh;
   height: 100%;
-  background-image: url('/MyWebsiteMockup.png');
+  background-image: url('/Website_background.png');
   background-size: cover;
+
+  .woman-container {
+    position: absolute;
+    min-height: 100vh;
+    width: 100vw;
+    // background-image: url('/Website_woman.png');
+    background-size: cover;
+    pointer-events: none;
+
+    img {
+      // min-height: 100vw;
+      height: calc(65% + 20vw);
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      pointer-events: none;
+    }
+  }
 
   .title-container {
     display: flex;
@@ -183,6 +204,45 @@ main {
     align-items: center;
     padding: 3vw 0vw 10vw 0vw;
 
+    .title-container {
+      // background: linear-gradient(to bottom, var(--color-white) 50%, var(--font-blue) 50%); 
+      background-color: var(--font-blue);
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      h3 {
+        color: var(--color-white);
+      }
+    }
+
+    .button-container {
+      background-color: var(--font-orange);
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 60px;
+      padding: 20px 0px 20px 0px;
+
+      button {
+        background-color: var(--background-periwinkle);
+        border-radius: 5px;
+        box-shadow: 0px 2px 2px 2px var(--color-black);
+        transition: background-color .2s ease;
+
+        path,
+        svg {
+          pointer-events: none;
+        }
+      }
+
+      button:hover {
+        background-color: color-mix(in srgb, var(--background-periwinkle) 50%, var(--color-black) 50%);
+        box-shadow: inset 0px 2px 2px 2px var(--color-black);
+        transition: background-color .2s ease;
+      }
+    }
+
     .carousel-element {
       display: flex;
       
@@ -200,8 +260,49 @@ main {
         }
       }       
     }
-
      
   }
 
+  .scrolling-text-container {
+    width: 100%;
+    overflow: hidden;
+
+    .scrolling-text {
+      white-space: nowrap;
+      display: flex;
+      flex-direction: row;
+      animation: scrollText 15s linear infinite;
+      container-type: inline-size;
+
+      h3{
+        margin: 0;
+        padding: 0;
+        font-size: 3.1cqw;
+      }
+    }
+  }
+
+  .my-images-enter {
+    opacity: 0;
+  }
+  .my-images-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+  }
+  .my-images-exit {
+    opacity: 1;
+  }
+  .my-images-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
