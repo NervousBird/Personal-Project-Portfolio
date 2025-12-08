@@ -17,17 +17,14 @@ function Portfolio() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { name } = e.target as HTMLButtonElement
-    setBackground(backgroundImageStyle[Number(name)])
-    switch(name) {
-      case "0":
-        return setGallery(illustrationsObject)
-      case "1":
-        return setGallery(portraitsObject)
-        case "2":
-          return setGallery(landscapesObject)
-      default:
-        return
-    }
+    const galleryIndex = Number(name)
+    const galleryMap = [
+      illustrationsObject,
+      portraitsObject,
+      landscapesObject,
+    ]
+    setBackground(backgroundImageStyle[galleryIndex])
+    setGallery(galleryMap[galleryIndex])
   }
 
   return (

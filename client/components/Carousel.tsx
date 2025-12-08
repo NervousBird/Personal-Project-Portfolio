@@ -24,9 +24,8 @@ function Carousel({ galleryObjects }: Props) {
     }
   }
 
-  const handleCarousel = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { id } = e.target as HTMLImageElement
-    setCount(Number(id))
+  const handleCarousel = (idx: number) => {
+    setCount(idx)
   }
 
   return (
@@ -41,20 +40,14 @@ function Carousel({ galleryObjects }: Props) {
 
       <div className="carousel-element">
         <div className="carousel-image-container">
-          {/* <CSSTransition timeout={200} classNames="my-images"> */}
-            <img src={galleryObjects[count]?.link} alt={galleryObjects[count]?.description}></img>
-            {/* {illustrationsObject.map((image, idx) => (
-              (idx) === count && <img key={idx} src={image.link} alt={image.description} />
-              )
-            )} */}
-          {/* </CSSTransition> */}
+          <img src={galleryObjects[count]?.link} alt={galleryObjects[count]?.description}></img>
         </div>
       </div>
 
       <div className="carousel-navigator-container">
         {galleryObjects?.map((image, idx) => (
-          <button key={idx} className="carousel-preview-image" onClick={handleCarousel}>
-            <img id={idx} src={galleryObjects[idx].link} alt={galleryObjects[idx].description} />
+          <button key={idx} className="carousel-preview-image" onClick={() => handleCarousel(idx)}>
+            <img src={galleryObjects[idx].link} alt={galleryObjects[idx].description} />
           </button>
         ))}
       </div>
