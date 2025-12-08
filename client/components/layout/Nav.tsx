@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 
 function Nav() {
   return (
-    <nav>
+    <nav className="nav-container">
+      <Link to="/" viewTransition>Home</Link>
       <Link to="/portfolio" viewTransition>Portfolio</Link>
       <Link to="/about" viewTransition>About</Link>
       <Link to="/contact" viewTransition>Contact</Link>

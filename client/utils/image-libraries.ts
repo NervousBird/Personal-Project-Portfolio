@@ -45,3 +45,57 @@ export const illustrationsObject = [
     description: 'Girl and cat, looking into camera',
   },
 ]
+
+export const portraitsObject = [
+  {
+    id: 1,
+    title: 'Study-01',
+    link: 'https://live.staticflickr.com/65535/54970578846_ef3194490d_b.jpg',
+    description: '',
+  },
+  {
+    id: 2,
+    title: 'Study-02',
+    link: 'https://live.staticflickr.com/65535/54969691367_5a90e21c50_b.jpg',
+    description: '',
+  },
+  {
+    id: 3,
+    title: 'Study-03',
+    link: 'https://live.staticflickr.com/65535/54970881045_8a1c6ffa12_b.jpg',
+    description: '',
+  },
+  {
+    id: 4,
+    title: 'Study-04',
+    link: 'https://live.staticflickr.com/65535/54969691202_cfaf965c23_b.jpg',
+    description: '',
+  },
+  {
+    id: 5,
+    title: 'Study-05',
+    link: 'https://live.staticflickr.com/65535/54970835489_81154bbf8d_b.jpg',
+    description: '',
+  },
+]
+
+export const landscapesObject = [
+  {
+    id: 1,
+    title: 'Through the Fields',
+    link: 'https://live.staticflickr.com/65535/54970797288_1becb1e17b_b.jpg',
+    description: '',
+  },
+  {
+    id: 2,
+    title: 'Fish and Chips',
+    link: 'https://live.staticflickr.com/65535/54970797193_a1632241c4_b.jpg',
+    description: '',
+  },
+  {
+    id: 3,
+    title: 'Fighting the Wind',
+    link: 'https://live.staticflickr.com/65535/54970923395_7b7e5bdc09_b.jpg',
+    description: '',
+  },
+]
