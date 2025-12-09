@@ -10,39 +10,51 @@ export const illustrationsObject = [
   {
     id: 1,
     title: 'Piercing',
-    link: 'https://live.staticflickr.com/65535/54965571137_01279870d9_b.jpg',
+    link: 'https://live.staticflickr.com/65535/54965571137_ab0cef0596_b.jpg',
     description:
-      'Woman with piercings, and a needle through her chin into her mouth.',
+      'Woman with piercings, and a needle through her chin into her mouth',
   },
   {
     id: 2,
     title: 'Kitty The Tiger',
     link: 'https://live.staticflickr.com/65535/54965609297_f9684f50a4_b.jpg',
-    description: 'Girl, surrounded by technology and tigers.',
+    description: 'Girl, surrounded by technology and tigers',
   },
   {
     id: 3,
     title: 'Noodle Slurping',
     link: 'https://live.staticflickr.com/65535/54966682668_ed47cac518_b.jpg',
-    description: 'Half nude woman eating ramen.',
+    description: 'Half nude woman eating ramen',
   },
   {
     id: 4,
     title: 'Summer Biking',
     link: 'https://live.staticflickr.com/65535/54965609032_7043622e14_b.jpg',
-    description: 'Woman on a little bike, with a view of the ocean.',
+    description: 'Woman on a little bike, with a view of the ocean',
   },
   {
     id: 5,
     title: 'B**BS',
     link: 'https://live.staticflickr.com/65535/54966682723_e0974c9e3c_b.jpg',
-    description: 'Naked woman stomach.',
+    description: 'Naked woman stomach',
   },
   {
     id: 6,
     title: 'Hi',
     link: 'https://live.staticflickr.com/65535/54965609327_76e2ccdc53_b.jpg',
     description: 'Girl and cat, looking into camera',
+  },
+  {
+    id: 7,
+    title: 'Bunny Ears',
+    link: 'https://live.staticflickr.com/65535/54973100725_3fe96b8f4c_b.jpg',
+    description: 'Girl in colourful tights',
+  },
+  {
+    id: 8,
+    title: 'Yellow Girl',
+    link: 'https://live.staticflickr.com/65535/54973057044_9ddce9a184_b.jpg',
+    description: 'Girl in colourful clothes against yellow background',
   },
 ]
 

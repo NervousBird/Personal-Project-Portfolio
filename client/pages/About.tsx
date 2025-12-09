@@ -19,6 +19,9 @@ function About() {
           <hr />
           <div className="text-chunk">
             <p>
+              Hi.
+            </p>
+            <p>
               My name is Leo Walton-van den Brink -- I'm an artist from New Zealand. Welcome to my website, I'll be posting all my art, websites, and anything else I fancy here. This is a place for me to just make what I want.<br/> As someone who was born in a family of artists, I have been cursed to never really have any money, but at least I can make things look nice. Music is also a huge passion of mine: and if all is going well, you'll be able to find a little music making website here (still in development). 
             </p>
             {/* <img src="/Cat_2.png" alt="Hairless cat" /> */}
@@ -38,10 +41,10 @@ function About() {
           <hr />
           <div className="text-chunk">
             <p>
-              Here's a cool cat picture.
+              Here's a cool cat drawing.
             </p>
           </div>
-          <img src="/Cat_2.png" alt="cat" />
+          <img src="/Cats_03.png" alt="cat" />
         </div>
       </section>
     </main>
