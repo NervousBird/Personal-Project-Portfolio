@@ -16,6 +16,9 @@
   --shade-periwinkle: #3e3ca5;
 
   --background-periwinkle: #bfb3fb;
+  --background-paleblue: #d6e2f8;
+  --background-paleyellow: #f7deb9;
+  --background-blue: #254dff;
 
 
 }
@@ -135,6 +138,7 @@ main {
   }
   a:hover {
     color: var(--font-magenta);
+    text-shadow: 2px 4px var(--font-blue);
   }
 }
 
@@ -322,6 +326,82 @@ main {
   .my-images-exit-active {
     opacity: 0;
     transition: opacity 200ms;
+  }
+}
+
+.about-container {
+    background: linear-gradient(to bottom, var(--shade-yellow) 50%, var(--font-blue) 50%);
+    // background-color: var(--font-blue); 
+    background-image: radial-gradient(var(--font-magenta) 10%, transparent 15%); 
+    background-size: 20px 20px;
+    background-repeat: repeat; header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+  min-height: 100vh;
+
+  // .background-image {
+  //   position: absolute;
+  //   background-image: url('/Website_Backsplash.png');
+  //   background-size: cover;
+  //   height: 100vh;
+  //   width: 100vw;
+  //   right: 0;
+  //   top: 0;
+  // }
+
+  .about-blurb-container {
+    background-image: url('/Website_Backsplash.png');
+    background-size: cover;
+    min-height: 100vh;
+
+    .text-container {
+      width: 80vw;
+      justify-self: center;
+
+      hr {
+        height: 3px;
+        background-color: var(--font-magenta);
+      }
+
+      img {
+        width: 250px;
+      }
+
+      .text-chunk {
+        margin: 2vw;
+        display: flex;
+        max-width: 50vw;
+        gap: 1rem;
+
+        p {
+          padding: 1rem;
+          background-color: var(--background-paleblue);
+          border: 2px solid var(--font-orange);
+          border-style: double;
+          box-shadow: 2px 2px 2px 0px var(--font-magenta), -2px -2px 2px 0px var(--background-blue);
+          font-family: "SUSE Mono";
+          font-weight: 500;
+          font-size: 1.2rem;
+          align-content: center;
+          transition: background-color .1s ease;
+        }
+
+        p:hover {
+          background-color: var(--background-paleyellow);
+          transition: background-color .1s ease;
+        }
+
+
+      }
+
+      .text-chunk:nth-child(2),
+      .text-chunk:nth-child(3),
+      .text-chunk:nth-child(6) {
+        justify-self: right;
+      }
+    }
   }
 }
 
