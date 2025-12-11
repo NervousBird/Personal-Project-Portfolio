@@ -484,6 +484,13 @@ main {
         justify-content: space-around;
         background-color: transparent;
         padding: 5px;
+
+        span {
+          position: absolute;
+          font-size: .5rem;
+          background-color: transparent;
+          border: none;
+        }
       }
 
       .message {
@@ -527,6 +534,18 @@ main {
     padding: 2rem;
   }
 
+  .websites {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    max-width: 80vw;
+    gap: 10px;
+
+    .music-machine-container {
+      background-color: var(--shade-periwinkle);
+      padding: 10px;
+    }
+  }
 }
 
 

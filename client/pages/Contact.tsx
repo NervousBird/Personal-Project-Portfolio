@@ -95,10 +95,11 @@ function Contact() {
             <textarea id="message" name="message" value={formData.message} onChange={handleChange} />
           </span>
           <span className="joke-message">
-            Your information will be saved and sold to the highest bidder.* This is a joke.
+            Your information will be saved and sold to the highest bidder.* This is a joke.**
           </span>
           <span className="button-container">
             <button type="submit" value="Send">SEND</button>
+            <span className="pps">**this isn't a joke</span>
             <button onClick={handleReset}>RESET</button>
           </span>
         </form>
