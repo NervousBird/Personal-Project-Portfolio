@@ -28,7 +28,7 @@
   src: url('fonts/CUBANO.TTF');
 }
 
-.app {
+html {
   background-color: var(--background-periwinkle);
   min-height: 100vh;
   height: 100%;
@@ -153,12 +153,10 @@ main {
     position: absolute;
     min-height: 100vh;
     width: 100vw;
-    // background-image: url('/Website_woman.png');
     background-size: cover;
     pointer-events: none;
 
     img {
-      // min-height: 100vw;
       height: calc(65% + 20vw);
       position: fixed;
       bottom: 0;
@@ -214,11 +212,6 @@ main {
     padding: 3vw 0vw 10vw 0vw;
 
     .title-container {
-      // background: linear-gradient(to bottom, var(--shade-yellow) 50%, var(--font-blue) 50%);
-      // background-color: var(--font-blue); 
-      // background-image: radial-gradient(var(--font-magenta) 10%, transparent 15%); 
-      // background-size: 20px 20px;
-      // background-repeat: repeat; 
       background-color: var(--font-blue);
       display: flex;
       justify-content: center;
@@ -251,7 +244,6 @@ main {
 
       button:hover {
         background-color: color-mix(in srgb, var(--background-periwinkle) 100%, var(--shade-periwinkle) 100%);
-        // background-color: var(--shade-periwinkle); 
       }
 
       button:active {
@@ -329,9 +321,9 @@ main {
   }
 }
 
+// About Page -- Desktop
 .about-container {
     background: linear-gradient(to bottom, var(--shade-yellow) 50%, var(--font-blue) 50%);
-    // background-color: var(--font-blue); 
     background-image: radial-gradient(var(--font-magenta) 10%, transparent 15%); 
     background-size: 20px 20px;
     background-repeat: repeat; header {
@@ -340,16 +332,6 @@ main {
     padding: 2rem;
   }
   min-height: 100vh;
-
-  // .background-image {
-  //   position: absolute;
-  //   background-image: url('/Website_Backsplash.png');
-  //   background-size: cover;
-  //   height: 100vh;
-  //   width: 100vw;
-  //   right: 0;
-  //   top: 0;
-  // }
 
   .about-blurb-container {
     background-image: url('/Website_Backsplash.png');
@@ -392,14 +374,144 @@ main {
           background-color: var(--background-paleyellow);
           transition: background-color .1s ease;
         }
-
-
       }
 
       .text-chunk:nth-child(2),
       .text-chunk:nth-child(3),
       .text-chunk:nth-child(6) {
         justify-self: right;
+      }
+    }
+  }
+}
+
+// Contact Page -- Desktop
+.contact-container {
+  background-image: url('/Website_desktop.png');
+  background-size: cover;
+  min-height: 100vh;
+  font-family: "SUSE Mono";
+  font-size: 1.3rem;
+
+  header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .contact-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2vw;
+
+    span {
+      background-color: var(--background-paleblue);
+      border: 2px solid var(--font-magenta);
+      box-shadow: 0px 4px 4px 0px var(--background-blue);
+      padding: 10px;
+      max-width: 50vw;
+    }
+  } 
+
+  .contact-form-container {
+    form {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--background-paleblue);
+      border: 2px solid var(--font-orange);
+      box-shadow: 0px 4px 4px 0px var(--background-blue);
+      justify-self: center;
+      width: 50vw;
+      // padding: 10px;
+      margin: 2vw;
+
+      .window-header {
+        display: flex;
+        background-color: var(--font-blue);
+        max-width: 100%;
+        padding: 0px;
+        justify-content: end;
+
+        .button {
+          background-color: var(--background-paleblue);
+          border: 2px solid var(--shade-blue);
+          padding: 2px;
+          margin: 0px;
+          width: 20px;
+          text-align: center;
+          cursor: pointer;
+        }
+        .button:hover {
+          background-color: var(--font-orange);
+        }
+        .button:active {
+          background-color: var(--shade-blue);
+        } 
+      }
+
+      span {
+        background-color: var(--background-paleblue);
+        border: 2px solid var(--shade-periwinkle);
+        padding: 20px;
+
+        input {
+          font-size: 1.2rem;
+          height: 1.3rem;
+          width: 100%;
+          padding: 0px;
+        }
+        textarea {
+          font-size: 1.2rem;
+          resize: none;
+          width: 100%;
+          height: 6rem;
+        }
+        input:focus,
+        textarea:focus {
+          outline: none;
+        }
+      }
+
+      .joke-message {
+        padding: 10px;
+        font-size: .8rem;
+        text-align: center;
+        text-align: centei;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-around;
+        background-color: transparent;
+        padding: 5px;
+      }
+
+      .message {
+        display: grid;
+        grid-template-columns: .1fr .9fr;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .name-email {
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr 4fr;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      button {
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        color: var(--color-black);
+        background-color: var(--background-paleblue);
+        border: 3px solid var(--font-orange);
+        height: 45px;
+      }
+      button:hover {
+        background-color: var(--font-magenta);
       }
     }
   }
@@ -413,3 +525,11 @@ main {
     transform: translateX(-100%);
   }
 }
+
+
+// Tablet view adjustments
+
+
+
+// Phone view adjustments
+
