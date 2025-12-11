@@ -477,7 +477,6 @@ main {
         padding: 10px;
         font-size: .8rem;
         text-align: center;
-        text-align: centei;
       }
 
       .button-container {
@@ -516,6 +515,20 @@ main {
     }
   }
 }
+
+.websites-container {
+  min-height: 100vh;
+  font-family: "SUSE Mono";
+  font-size: 1.3rem;
+
+  header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+}
+
 
 @keyframes scrollText {
   0% {

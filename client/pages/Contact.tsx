@@ -2,6 +2,10 @@ import React, { FormEvent, useRef, useState } from "react"
 import Nav from "../components/layout/Nav"
 import emailjs from '@emailjs/browser'
 
+const serviceId = import.meta.env.VITE_SERVICE_ID
+const templateId = import.meta.env.VITE_TEMPLATE_ID
+const keyId = import.meta.env.VITE_PUBLIC_KEY
+
 function Contact() {
   const titleArray = "Contact".split("")
   const form = useRef<string | HTMLFormElement>()
@@ -23,13 +27,13 @@ function Contact() {
 
     const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
 
-    if(formData.name === "" && validEmail && formData.message === "") {
+    if(formData.name === "" || !validEmail || formData.message === "") {
       setWarning(true)
     } else {
       // eslint-disable-next-line promise/catch-or-return
       emailjs
-        .sendForm('service_5d37phk', 'template_2yj9nea', form.current as string | HTMLFormElement, {
-          publicKey: 'xlokSZXDWTHLN8viP',
+        .sendForm(serviceId, templateId, form.current as string | HTMLFormElement, {
+          publicKey: keyId,
         })
         .then(
           () => {
