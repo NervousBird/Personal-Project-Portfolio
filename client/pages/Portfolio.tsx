@@ -5,7 +5,7 @@ import Carousel from "../components/Carousel"
 
 const backgroundImageStyle = [
   {backgroundImage: `url('/website_illustrations.png')`},
-  {backgroundImage: `url('/website_portraits.png')`},    
+  {backgroundImage: `url('/website_portraits.png')`},
   {backgroundImage: `url('/website_landscapes.png')`},
 ]
 
