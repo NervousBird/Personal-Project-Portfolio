@@ -321,6 +321,15 @@ main {
   }
 }
 
+@keyframes scrollText {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 // About Page -- Desktop
 .about-container {
     background: linear-gradient(to bottom, var(--shade-yellow) 50%, var(--font-blue) 50%);
@@ -540,23 +549,49 @@ main {
     justify-content: center;
     max-width: 80vw;
     gap: 10px;
+    margin: 3vw;  
 
     .music-machine-container {
       background-color: var(--shade-periwinkle);
+      width: 250px;
       padding: 10px;
+      border: 2px solid var(--font-yellow);
+
+      h3 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .music-machine-container:hover {
+      background-color: var(--font-orange);
+    }
+
+    .finances-container {
+      background-color: var(--font-blue);
+      width: 250px;
+      padding: 10px;
+      border: 2px solid var(--font-yellow);
+
+      h3 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .finances-container:hover {
+      background-color: var(--font-yellow);
     }
   }
 }
 
 
-@keyframes scrollText {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 
 
 // Tablet view adjustments
