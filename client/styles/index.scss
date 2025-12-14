@@ -193,8 +193,8 @@ main {
     background-position: center;    
     height: 25vw;
     max-width: 100%;
-    transition: background-image .2s ease;
     margin: 1rem 0rem 3vw 0rem;
+    animation: fuzzy-in .4s;
 
     div {
       display: flex;
@@ -212,7 +212,8 @@ main {
     padding: 3vw 0vw 10vw 0vw;
 
     .title-container {
-      background-color: var(--font-blue);
+      background-color: var(--color-black);
+      outline: 4px solid var(--font-magenta);
       display: flex;
       justify-content: center;
       width: 100%;
@@ -266,8 +267,10 @@ main {
         img {
           width: 100%;
           max-height: 90vh;
+          animation: fuzzy-in .5s;
         }
       }
+
     }
 
     .carousel-preview-image {
@@ -319,6 +322,28 @@ main {
     opacity: 0;
     transition: opacity 200ms;
   }
+
+  .image-title {
+    font-family: 'SUSE Mono', 'Rubik Mono One';
+    font-weight: 800;
+    font-size: 2.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 1rem solid var(--font-yellow); 
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: .18rem;
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--font-yellow) }
 }
 
 @keyframes scrollText {
@@ -330,65 +355,206 @@ main {
   }
 }
 
+@keyframes fuzzy-in {
+  from { filter: blur(25px); image-rendering: pixelated }
+  to { filter: blur(0px); image-rendering: auto }
+}
+
+@keyframes oldschool-loadin {
+  from {  }
+  to {  }
+}
+
 // About Page -- Desktop
 .about-container {
-    background: linear-gradient(to bottom, var(--shade-yellow) 50%, var(--font-blue) 50%);
-    background-image: radial-gradient(var(--font-magenta) 10%, transparent 15%); 
-    background-size: 20px 20px;
-    background-repeat: repeat; header {
+  background-image: url('/Website_desktop.png');
+  background-size: cover;
+  min-height: 100vh;
+  font-family: "SUSE Mono";
+  font-size: 1.3rem; 
+
+  header {
     display: flex;
     justify-content: center;
     padding: 2rem;
   }
-  min-height: 100vh;
 
-  .about-blurb-container {
-    background-image: url('/Website_Backsplash.png');
-    background-size: cover;
-    min-height: 100vh;
+  .about-desktop-container {
+    height: 100%;
 
-    .text-container {
-      width: 80vw;
-      justify-self: center;
+    .icon-container {
+      display: grid;
+      position:fixed;
+      grid-template-rows: repeat(3, 180px);
+      padding: 5px;
 
-      hr {
-        height: 3px;
-        background-color: var(--font-magenta);
+      .desktop-icon {
+        display: grid;
+        justify-items: center;
+        height: auto;
+        width: 130px;
+
+        img {
+          width: 80px;
+          height: 80px;
+          align-self: center;
+        }
+
+        p {
+        font-family: "SUSE Mono";
+        font-size: 16px;
+        max-width: 130px;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin: 0;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
-
-      img {
-        width: 250px;
       }
+    }
 
-      .text-chunk {
-        margin: 2vw;
-        display: flex;
-        max-width: 50vw;
-        gap: 1rem;
+    .window-container {
+      position: fixed;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
+      pointer-events: none;
+      padding-top: 2rem;
+
+      .about-window {
+        pointer-events: all;
+        background-color: var(--background-paleblue);
+        border-top: 3px solid var(--color-white);
+        border-left: 3px solid var(--color-white);
+        border-right: 3px solid var(--color-black);
+        border-bottom: 3px solid var(--color-black);
+        max-width: 600px;
+        height: fit-content;
+
+        .top-bar {
+          display: flex;
+          background-color: var(--shade-blue);
+          max-width: 100%;
+          height: 30px;
+          padding: 0px;
+          justify-content: space-between;
+          align-items: center;
+
+          p {
+            color: var(--color-white);
+          }
+
+          button {
+            font-family: "SUSE Mono";
+            font-size: 18px;
+            font-weight: bold;
+            background-color: var(--font-blue);
+            border: 2px solid var(--color-black);
+            padding: 2px;
+            margin: 0px;
+            width: 28px;
+            height: 28px;
+            text-align: center;
+            cursor: pointer;
+          }
+          button:hover {
+            background-color: var(--font-orange);
+          }
+          button:active {
+            background-color: var(--shade-blue);
+          } 
+        }
 
         p {
           padding: 1rem;
-          background-color: var(--background-paleblue);
-          border: 2px solid var(--font-orange);
-          border-style: double;
-          box-shadow: 2px 2px 2px 0px var(--font-magenta), -2px -2px 2px 0px var(--background-blue);
+          margin: 0;
           font-family: "SUSE Mono";
           font-weight: 500;
           font-size: 1.2rem;
           align-content: center;
           transition: background-color .1s ease;
         }
+      }
+    }
 
-        p:hover {
-          background-color: var(--background-paleyellow);
-          transition: background-color .1s ease;
+    .taskbar {
+      display: flex;
+      position: fixed;
+      bottom: 0px;
+      justify-content: start;
+      background-color: var(--background-periwinkle);
+      border-top: 2px solid var(--color-white);
+      width: 100%;
+      height: 40px;
+      padding: 5px 0px 5px 0px;
+
+      .start {
+        align-content: center;
+        border-top: 2px solid var(--color-white);
+        border-left: 2px solid var(--color-white);
+        border-right: 2px solid var(--color-black);
+        border-bottom: 2px solid var(--color-black);
+        padding: 0px 10px 0px 10px;
+        transition: background-color .2s ease;
+      }
+      
+      .start:hover {
+        background-color: color-mix(in srgb, var(--background-periwinkle) 100%, var(--color-black) 30%);
+        border-top: 2px solid var(--color-black);
+        border-left: 2px solid var(--color-black);
+        border-right: 2px solid var(--color-white);
+        border-bottom: 2px solid var(--color-white);
+        transition: background-color .2s ease;
+      }
+
+      .apps-container {
+        display: flex;
+        align-items: center;
+        padding: 0 2rem 0 2rem;
+        gap: 1.5rem;
+        font-weight: 600;
+        font-size: 26px;
+      }
+
+      .programs-container {
+        display: flex;
+        align-items: center;
+
+        button {
+          font-family: "SUSE Mono";
+          font-weight: 500;
+          font-size: 1.2rem;
+          color: var(--color-black);
+          height: 40px;
+          align-content: center;
+          border-top: 2px solid var(--color-white);
+          border-left: 2px solid var(--color-white);
+          border-right: 2px solid var(--color-black);
+          border-bottom: 2px solid var(--color-black);
+          padding: 0px 10px 0px 10px;  
+          transition: background-color .2s ease;
+        }
+
+        button:hover {
+          background-color: color-mix(in srgb, var(--background-periwinkle) 100%, var(--color-black) 30%);
+          border-top: 2px solid var(--color-black);
+          border-left: 2px solid var(--color-black);
+          border-right: 2px solid var(--color-white);
+          border-bottom: 2px solid var(--color-white);
+          transition: background-color .2s ease;
         }
       }
 
-      .text-chunk:nth-child(2),
-      .text-chunk:nth-child(3),
-      .text-chunk:nth-child(6) {
-        justify-self: right;
+      .info-container {
+        display: flex;
+        align-items: center;
+        border-top: 2px solid var(--color-black);
+        border-left: 2px solid var(--color-black);
+        border-right: 2px solid var(--color-white);
+        border-bottom: 2px solid var(--color-white);
+        margin-left: auto;
       }
     }
   }
@@ -396,11 +562,26 @@ main {
 
 // Contact Page -- Desktop
 .contact-container {
-  background-image: url('/Website_desktop.png');
-  background-size: cover;
-  min-height: 100vh;
+  // background-image: url('/Website_desktop.png');
+  // background-size: cover;
+  // min-height: 100vh;
   font-family: "SUSE Mono";
   font-size: 1.3rem;
+  background: linear-gradient(to bottom, var(--shade-yellow) 50%, var(--font-blue) 50%);
+  background-image: radial-gradient(var(--font-magenta) 10%, transparent 15%); 
+  background-size: 20px 20px;
+    background-repeat: repeat; header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+  min-height: 100vh;
+
+  .background-image {
+    background-image: url('/Website_Backsplash.png');
+    background-size: cover;
+    min-height: 100vh;
+  }
 
   header {
     display: flex;
@@ -431,9 +612,9 @@ main {
       border: 2px solid var(--font-orange);
       box-shadow: 0px 4px 4px 0px var(--background-blue);
       justify-self: center;
-      width: 50vw;
-      // padding: 10px;
+      width: 30vw;
       margin: 2vw;
+      transition: width .2s ease;
 
       .window-header {
         display: flex;
@@ -591,12 +772,46 @@ main {
   }
 }
 
+// page transitions
+::view-transition-old(root) {
+  animation: 0.5s cubic-bezier(0.4, 0, 1, 1) both fade-out-custom;
+}
 
+::view-transition-new(root) {
+  animation: 0.5s cubic-bezier(0, 0, 0.2, 1) both fade-in-custom;
+}
 
+@keyframes fade-out-custom {
+  from { opacity: 1;}
+  to { opacity: 0;}
+  // from { opacity: 1; transform: matrix(0); scale: 1;}
+  // to { opacity: 0; transform: matrix(1, 2, 3, 4, 5, 6); scale: 0;}
+}
+
+@keyframes fade-in-custom {
+  from { opacity: 0;} 
+  to { opacity: 1;}
+  // from { opacity: 0; transform: matrix(1, 2, 3, 4, 5, 6,);}
+  // to { opacity: 1; transform: matrix(0);}
+}
 
 // Tablet view adjustments
+@media only screen and (max-width: 1280px) {
 
+  .contact-container {
 
+    .background-image {
+
+      .contact-form-container {
+
+        form {
+          width: 60vw;
+          transition: width .2s ease;
+        }
+      }
+    }
+  }
+}
 
 // Phone view adjustments
 

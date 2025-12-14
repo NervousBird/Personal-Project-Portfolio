@@ -29,6 +29,7 @@ function Portfolio() {
 
   return (
     <main className="portfolio-container">
+      
       <header>
         {titleArray.map((letter, idx) => (
           <h1 key={`${letter}-${idx}`}>{letter}</h1>
@@ -38,6 +39,7 @@ function Portfolio() {
       <Nav />
 
       <section
+        key={background.backgroundImage}
         className="portfolio-categories-container"
         style={background}>
         <div>
