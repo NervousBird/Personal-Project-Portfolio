@@ -58,6 +58,7 @@ function Contact() {
 
   return (
     <main className="contact-container">
+      {/* <div className="background-image" /> */}
       <header>
         {titleArray.map((letter, idx) => (
           <h1 key={`${letter}-${idx}`}>{letter}</h1>
@@ -66,43 +67,45 @@ function Contact() {
 
       <Nav />
 
-      <section className="contact-info-container">
-        <span>
-          If you are interested in commissioning art, or working together on a project (be that programming, art, or anything else) -- use the below form to get in contact with me.
-        </span>
-      </section>
-
-      {warning && <p>Fill in the form completely</p>}
-
-      <section className="contact-form-container">
-        <form ref={form} onSubmit={handleSubmit}>
-          <span className="window-header">
-            <div className="button">_</div>
-            <div className="button">O</div>
-            <div className="button">X</div>
-          </span>
+      <section className="background-image">
+        <section className="contact-info-container">
           <span>
-            Please make sure your name and email are correct so that communications can proceed without issue.
+            If you are interested in commissioning art, or working together on a project (be that programming, art, or anything else) -- use the below form to get in contact with me.
           </span>
-          <span className="name-email">
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
-          </span>
-          <span className="message">
-            <label htmlFor="message">Message:</label>
-            <textarea id="message" name="message" value={formData.message} onChange={handleChange} />
-          </span>
-          <span className="joke-message">
-            Your information will be saved and sold to the highest bidder.* This is a joke.**
-          </span>
-          <span className="button-container">
-            <button type="submit" value="Send">SEND</button>
-            <span className="pps">**this isn't a joke</span>
-            <button onClick={handleReset}>RESET</button>
-          </span>
-        </form>
+        </section>
+
+        {warning && <p>Fill in the form completely</p>}
+
+        <section className="contact-form-container">
+          <form ref={form} onSubmit={handleSubmit}>
+            <span className="window-header">
+              <div className="button">_</div>
+              <div className="button">O</div>
+              <div className="button">X</div>
+            </span>
+            <span>
+              Please make sure your name and email are correct so that communications can proceed without issue.
+            </span>
+            <span className="name-email">
+              <label htmlFor="name">Name:</label>
+              <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
+              <label htmlFor="email">Email:</label>
+              <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+            </span>
+            <span className="message">
+              <label htmlFor="message">Message:</label>
+              <textarea id="message" name="message" value={formData.message} onChange={handleChange} />
+            </span>
+            <span className="joke-message">
+              Your information will be saved and sold to the highest bidder.* This is a joke.**
+            </span>
+            <span className="button-container">
+              <button type="submit" value="Send">SEND</button>
+              <span className="pps">**this isn't a joke</span>
+              <button onClick={handleReset}>RESET</button>
+            </span>
+          </form>
+        </section>
       </section>
     </main>
   )
