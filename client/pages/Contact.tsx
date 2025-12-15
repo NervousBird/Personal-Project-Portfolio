@@ -1,4 +1,4 @@
-import React, { FormEvent, useRef, useState } from "react"
+import React, { FormEvent, useEffect, useRef, useState } from "react"
 import Nav from "../components/layout/Nav"
 import emailjs from '@emailjs/browser'
 
@@ -8,6 +8,7 @@ const keyId = import.meta.env.VITE_PUBLIC_KEY
 
 function Contact() {
   const titleArray = "Contact".split("")
+  const timerId = useRef<number>()
   const form = useRef<string | HTMLFormElement>()
   const [notification, setNotification] = useState(false)
   const [message, setMessage] = useState('')
@@ -40,18 +41,24 @@ function Contact() {
             setMessage('Thanks for getting in contact, I will reply when I feel like it.')
             setFormData({name: '', email: '', message: ''})
             setNotification(true)
-            setTimeout(() => {
+            timerId.current = window.setTimeout(() => {
               setNotification(false)
             }, 5000)
           },
           (error) => {
-            console.log('FAILED...', error.text)
+            // console.log('FAILED...', error.text)
             setMessage('Something went wrong (oh no!), please try again.')
             setNotification(true)
           },
         )
     }
   }
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timerId.current)
+    }
+  }, [])
 
   const handleReset = (e: FormEvent) => {
     e.preventDefault()
@@ -86,7 +93,7 @@ function Contact() {
             </span>
             
             <span>
-              <p>Please make sure your name and email are correct so that communications can proceed without issue.</p>
+              Please make sure your name and email are correct so that communications can proceed without issue.
             </span>
 
             <span className="name-email">
@@ -114,9 +121,9 @@ function Contact() {
           </form>
 
           {notification &&
-            <span className="notification">
+            <div className="notification">
               <p>{message}</p>
-            </span>
+            </div>
           }
 
         </section>
