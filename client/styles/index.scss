@@ -549,19 +549,24 @@ main {
           height: 300px;
           width: 200px;
           bottom: 50px;
-          background: linear-gradient(to left, var(--background-periwinkle) 92%, var(--font-orange) 10%);
+          background: linear-gradient(to right, var(--font-orange) 8%, var(--background-periwinkle) 8%);
           border-top: 2px solid var(--color-white);
           border-left: 2px solid var(--color-white);
           border-right: 2px solid var(--color-black);
           border-bottom: 2px solid var(--color-black);
 
-          span {
+          button {
+            color: var(--color-black);
+            font-family: "SUSE Mono";
+            font-size: 1.3rem;
             padding: 10px 10px 10px 40px;
             font-size: 1.2rem;
+            height: 45px;
+            text-align: left;
             cursor: pointer;
             transition: background-color .2s ease;
           }
-          span:hover {
+          button:hover {
             background-color: color-mix(in srgb, var(--background-periwinkle) 100%, var(--color-black) 30%);
             transition: background-color .2s ease;
           }
@@ -595,9 +600,9 @@ main {
           border-bottom: 2px solid var(--color-black);
           padding: 0px 10px 0px 10px;  
           transition: background-color .2s ease;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
         }
 
         button:hover {

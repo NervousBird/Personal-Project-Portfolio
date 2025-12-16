@@ -21,21 +21,21 @@ function About() {
   }, [])
 
   const handleAbout1 = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const { name } = event.target as HTMLButtonElement
+    const { name } = event.currentTarget
     if (name === 'open') setAbout1({ minimise: false, open: true })
     if (name === 'minimise') setAbout1({ minimise: true, open: true })
     if (name === 'close') setAbout1({ minimise: false, open: false })
   }
 
   const handleAbout2 = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const { name } = event.target as HTMLButtonElement
+    const { name } = event.currentTarget
     if (name === 'open') setAbout2({ minimise: false, open: true })
     if (name === 'minimise') setAbout2({ minimise: true, open: true })
     if (name === 'close') setAbout2({ minimise: false, open: false })
   }
 
   const handleAbout3 = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const { name } = event.target as HTMLButtonElement
+    const { name } = event.currentTarget
     if (name === 'open') setAbout3({ minimise: false, open: true })
     if (name === 'minimise') setAbout3({ minimise: true, open: true })
     if (name === 'close') setAbout3({ minimise: false, open: false })
@@ -79,7 +79,7 @@ function About() {
 
           <div className="window-container">
             {about1.open && !about1.minimise &&
-              <div key={`about1${about1}`} className="about-window"> 
+              <div key={`about1${about1.open}${about1.minimise}`} className="about-window"> 
                 <div className="top-bar">
                   <p>brief-introduction-inprogress.txt</p>
                   <div className="buttons">
@@ -96,7 +96,7 @@ function About() {
               </div>
             }
             {about2.open && !about2.minimise &&
-              <div key={`about2${about2}`} className="about-window"> 
+              <div key={`about2${about2.open}${about2.minimise}`} className="about-window"> 
                 <div className="top-bar">
                   <p>history_01_final_final.txt</p>
                   <div className="buttons">
@@ -110,7 +110,7 @@ function About() {
               </div>
             }
             {about3.open && !about3.minimise &&
-              <div key={`about3${about3}`} className="about-window"> 
+              <div key={`about3${about3.open}${about3.minimise}`} className="about-window"> 
                 <div className="top-bar">
                   <p>extra_stuff_03.txt</p>
                   <div className="buttons">
@@ -131,10 +131,10 @@ function About() {
             <button onClick={handleStart} className="start-button">Start</button>
             {start && 
               <div ref={startMenuRef} className="start-window">
-                <span>Cat Pictures</span>
-                <span>Dog Pictures</span>
-                <span>Bird Pictures</span>
-                <span>Computer</span>
+                <button name="open" onClick={handleAbout1}>Cat Pictures</button>
+                <button name="open" onClick={handleAbout2}>Dog Pictures</button>
+                <button name="open" onClick={handleAbout3}>Bird Pictures</button>
+                <button>Computer</button>
               </div>
             }
           </div>

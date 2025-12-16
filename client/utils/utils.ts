@@ -1,14 +1,13 @@
 import { useEffect, useRef } from 'react'
 
-export function useClickOutside(handler: () => void) {
-  const ref = useRef<HTMLDivElement>()
+export function useClickOutside<T extends HTMLElement = HTMLDivElement>(
+  handler: () => void,
+) {
+  const ref = useRef<T>(null)
 
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
-      if (
-        !ref.current ||
-        ref.current.contains(event.target as HTMLDivElement)
-      ) {
+      if (!ref.current || ref.current.contains(event.target as Node)) {
         return
       }
       handler()
