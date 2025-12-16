@@ -22,20 +22,24 @@ function About() {
 
   const handleAbout = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { name } = event.currentTarget
-    if (name.includes("1")) {
-        if (name.includes('open')) setAbout1({ minimise: false, open: true })
-        if (name.includes('minimise')) setAbout1({ minimise: true, open: true })
-        if (name.includes('close')) setAbout1({ minimise: false, open: false })
+    const [action, id] = name.split(' ')
+
+    const setters: { [key: string]: React.Dispatch<React.SetStateAction<{ minimise: boolean; open: boolean }>> } = {
+      '1': setAbout1,
+      '2': setAbout2,
+      '3': setAbout3,
     }
-    if (name.includes("2")) {
-        if (name.includes('open')) setAbout2({ minimise: false, open: true })
-        if (name.includes('minimise')) setAbout2({ minimise: true, open: true })
-        if (name.includes('close')) setAbout2({ minimise: false, open: false })
+
+    const setter = setters[id]
+    if (!setter) return
+    if(action === 'open') {
+      setter({ minimise: false, open: true })
     }
-    if (name.includes("3")) {
-        if (name.includes('open')) setAbout3({ minimise: false, open: true })
-        if (name.includes('minimise')) setAbout3({ minimise: true, open: true })
-        if (name.includes('close')) setAbout3({ minimise: false, open: false })
+    if(action === 'minimise') {
+      setter({ minimise: true, open: true })
+    }
+    if(action === 'close') {
+      setter({ minimise: false, open: false })
     }
   }
 
