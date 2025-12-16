@@ -398,18 +398,29 @@ main {
           width: 80px;
           height: 80px;
           align-self: center;
+          pointer-events: none;
         }
 
         p {
-        font-family: "SUSE Mono";
-        font-size: 16px;
-        max-width: 130px;
-        padding-left: 5px;
-        padding-right: 5px;
-        margin: 0;
-        text-overflow: ellipsis;
-        overflow: hidden;
+          font-family: "SUSE Mono";
+          font-size: 16px;
+          max-width: 130px;
+          height: 1.3rem;
+          padding-left: 5px;
+          padding-right: 5px;
+          margin: 0;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          pointer-events: none;
+        }
       }
+
+      .desktop-icon:focus {
+
+        p {
+          outline: 2px dotted var(--background-blue);
+          background-color: color-mix(in srgb, var(--background-blue) 50%, transparent 50%);
+        }
       }
     }
 
@@ -430,11 +441,14 @@ main {
         border-left: 3px solid var(--color-white);
         border-right: 3px solid var(--color-black);
         border-bottom: 3px solid var(--color-black);
-        max-width: 600px;
+        width: 600px;
+        max-width: 90vw;
         height: fit-content;
+        animation: 0.2s cubic-bezier(0.4, 0, 1, 1) both squish-in-custom;
 
         .top-bar {
           display: flex;
+          flex-wrap: nowrap;
           background-color: var(--shade-blue);
           max-width: 100%;
           height: 30px;
@@ -444,27 +458,37 @@ main {
 
           p {
             color: var(--color-white);
+            pointer-events: none;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            max-height: 30px;
+            max-width: 60vw;
           }
 
-          button {
-            font-family: "SUSE Mono";
-            font-size: 18px;
-            font-weight: bold;
-            background-color: var(--font-blue);
-            border: 2px solid var(--color-black);
-            padding: 2px;
-            margin: 0px;
-            width: 28px;
-            height: 28px;
-            text-align: center;
-            cursor: pointer;
+          .buttons {
+            display: flex;
+
+            button {
+              font-family: "SUSE Mono";
+              font-size: 18px;
+              font-weight: bold;
+              background-color: var(--font-blue);
+              border: 2px solid var(--color-black);
+              padding: 2px;
+              margin: 0px;
+              width: 28px;
+              height: 28px;
+              text-align: center;
+              cursor: pointer;
+            }
+            button:hover {
+              background-color: var(--font-orange);
+            }
+            button:active {
+              background-color: var(--shade-blue);
+            }
           }
-          button:hover {
-            background-color: var(--font-orange);
-          }
-          button:active {
-            background-color: var(--shade-blue);
-          } 
         }
 
         p {
@@ -491,24 +515,60 @@ main {
       padding: 5px 0px 5px 0px;
 
       .start {
-        align-content: center;
-        border-top: 2px solid var(--color-white);
-        border-left: 2px solid var(--color-white);
-        border-right: 2px solid var(--color-black);
-        border-bottom: 2px solid var(--color-black);
-        padding: 0px 10px 0px 10px;
-        transition: background-color .2s ease;
+        align-self: center;
+
+        .start-button {
+          color: var(--color-black);
+          font-family: "SUSE Mono";
+          font-size: 1.3rem;
+          align-content: center;
+          border-top: 2px solid var(--color-white);
+          border-left: 2px solid var(--color-white);
+          border-right: 2px solid var(--color-black);
+          border-bottom: 2px solid var(--color-black);
+          padding: 10px 10px 10px 10px;
+          margin: 0;
+          transition: background-color .2s ease;
+          height: 100%;
+        }
+
+        .start-button:hover {
+          background-color: color-mix(in srgb, var(--background-periwinkle) 100%, var(--color-black) 30%);
+          border-top: 2px solid var(--color-black);
+          border-left: 2px solid var(--color-black);
+          border-right: 2px solid var(--color-white);
+          border-bottom: 2px solid var(--color-white);
+          transition: background-color .2s ease;
+        }
+
+        .start-window {
+          display: flex;
+          flex-direction: column;
+          padding: 0px 0px 0px 20px;
+          position: absolute;
+          height: 300px;
+          width: 200px;
+          bottom: 50px;
+          background: linear-gradient(to left, var(--background-periwinkle) 92%, var(--font-orange) 10%);
+          border-top: 2px solid var(--color-white);
+          border-left: 2px solid var(--color-white);
+          border-right: 2px solid var(--color-black);
+          border-bottom: 2px solid var(--color-black);
+
+          span {
+            padding: 10px 10px 10px 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color .2s ease;
+          }
+          span:hover {
+            background-color: color-mix(in srgb, var(--background-periwinkle) 100%, var(--color-black) 30%);
+            transition: background-color .2s ease;
+          }
+        }
       }
       
-      .start:hover {
-        background-color: color-mix(in srgb, var(--background-periwinkle) 100%, var(--color-black) 30%);
-        border-top: 2px solid var(--color-black);
-        border-left: 2px solid var(--color-black);
-        border-right: 2px solid var(--color-white);
-        border-bottom: 2px solid var(--color-white);
-        transition: background-color .2s ease;
-      }
-
+      
       .apps-container {
         display: flex;
         align-items: center;
@@ -535,6 +595,9 @@ main {
           border-bottom: 2px solid var(--color-black);
           padding: 0px 10px 0px 10px;  
           transition: background-color .2s ease;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         button:hover {
@@ -550,6 +613,7 @@ main {
       .info-container {
         display: flex;
         align-items: center;
+        gap: 10px;
         border-top: 2px solid var(--color-black);
         border-left: 2px solid var(--color-black);
         border-right: 2px solid var(--color-white);
@@ -796,15 +860,23 @@ main {
 @keyframes fade-out-custom {
   from { opacity: 1;}
   to { opacity: 0;}
-  // from { opacity: 1; transform: matrix(0); scale: 1;}
-  // to { opacity: 0; transform: matrix(1, 2, 3, 4, 5, 6); scale: 0;}
+
 }
 
 @keyframes fade-in-custom {
   from { opacity: 0;} 
   to { opacity: 1;}
-  // from { opacity: 0; transform: matrix(1, 2, 3, 4, 5, 6,);}
-  // to { opacity: 1; transform: matrix(0);}
+
+}
+
+@keyframes squish-out-custom {
+  from { opacity: 1; transform: matrix(0); scale: 1;}
+  to { opacity: 0; transform: matrix(1, 1, 6, 6, 5, 1); scale: .5;}  
+}
+
+@keyframes squish-in-custom {
+  from { opacity: 0; transform: matrix(1, 1, 6, 6, 5, 1); scale: .5}
+  to { opacity: 1; transform: matrix(0); scale: 1}
 }
 
 // Tablet view adjustments

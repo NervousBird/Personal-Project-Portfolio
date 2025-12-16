@@ -1,32 +1,53 @@
 import { useEffect, useState } from "react"
 import Nav from "../components/layout/Nav"
+import { useClickOutside } from "../utils/utils"
 
 function About() {
   const titleArray = "About".split("")
   const [time, setTime] = useState(new Date())
-  const [about1, setAbout1] = useState(true)
-  const [about2, setAbout2] = useState(true)
-  const [about3, setAbout3] = useState(true)
+  const [about1, setAbout1] = useState({ minimise: false, open: true })
+  const [about2, setAbout2] = useState({ minimise: false, open: true })
+  const [about3, setAbout3] = useState({ minimise: false, open: true })
+  const [start, setStart] = useState(false)
 
   useEffect(() => {
     const timerId = setInterval(() => {
       setTime(new Date())
-    }, 1000)
+    }, 60000)
 
     return () => {
       clearInterval(timerId)
     }
   }, [])
 
-  const handleAbout1 = () => {
-    setAbout1(!about1)
+  const handleAbout1 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const { name } = event.target as HTMLButtonElement
+    if (name === 'open') setAbout1({ minimise: false, open: true })
+    if (name === 'minimise') setAbout1({ minimise: true, open: true })
+    if (name === 'close') setAbout1({ minimise: false, open: false })
   }
-  const handleAbout2 = () => {
-    setAbout2(!about2)
+
+  const handleAbout2 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const { name } = event.target as HTMLButtonElement
+    if (name === 'open') setAbout2({ minimise: false, open: true })
+    if (name === 'minimise') setAbout2({ minimise: true, open: true })
+    if (name === 'close') setAbout2({ minimise: false, open: false })
   }
-  const handleAbout3 = () => {
-    setAbout3(!about3)
+
+  const handleAbout3 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const { name } = event.target as HTMLButtonElement
+    if (name === 'open') setAbout3({ minimise: false, open: true })
+    if (name === 'minimise') setAbout3({ minimise: true, open: true })
+    if (name === 'close') setAbout3({ minimise: false, open: false })
   }
+
+  const handleStart = () => {
+    setStart(!start)
+  }
+
+  const startMenuRef = useClickOutside(() => {
+    setStart(false)
+  })
 
   return (
     <main className="about-container">
@@ -42,28 +63,28 @@ function About() {
 
         <div className="desktop-container">
           <div className="icon-container">
-            <button onClick={handleAbout1} className="desktop-icon">
+            <button name="open" onDoubleClick={handleAbout1} className="desktop-icon">
               <img src="/Cats_03.png" alt="cat" />
               <p>My Computer</p>
             </button>
-            <button onClick={handleAbout2} className="desktop-icon">
+            <button name="open" onDoubleClick={handleAbout2} className="desktop-icon">
               <img src="/Cats_03.png" alt="cat" />
               <p>Documents</p>
             </button>
-            <button onClick={handleAbout3} className="desktop-icon">
+            <button name="open" onDoubleClick={handleAbout3} className="desktop-icon">
               <img src="/Cats_03.png" alt="cat" />
               <p>Internet Explorer</p>
             </button>
           </div>
 
           <div className="window-container">
-            {about1 &&
+            {about1.open && !about1.minimise &&
               <div key={`about1${about1}`} className="about-window"> 
                 <div className="top-bar">
                   <p>brief-introduction-inprogress.txt</p>
                   <div className="buttons">
-                    <button onClick={handleAbout1}>-</button> 
-                    <button onClick={handleAbout1}>x</button>
+                    <button name="minimise" onClick={handleAbout1}>-</button> 
+                    <button name="close" onClick={handleAbout1}>x</button>
                   </div>
                 </div>
                 <p>
@@ -74,13 +95,13 @@ function About() {
                 </p>
               </div>
             }
-            {about2 &&
+            {about2.open && !about2.minimise &&
               <div key={`about2${about2}`} className="about-window"> 
                 <div className="top-bar">
                   <p>history_01_final_final.txt</p>
                   <div className="buttons">
-                    <button onClick={handleAbout2}>-</button> 
-                    <button onClick={handleAbout2}>x</button>
+                    <button name="minimise" onClick={handleAbout2}>-</button> 
+                    <button name="close" onClick={handleAbout2}>x</button>
                   </div>
                 </div>
                 <p>
@@ -88,13 +109,13 @@ function About() {
                 </p>
               </div>
             }
-            {about3 &&
+            {about3.open && !about3.minimise &&
               <div key={`about3${about3}`} className="about-window"> 
                 <div className="top-bar">
                   <p>extra_stuff_03.txt</p>
                   <div className="buttons">
-                    <button onClick={handleAbout3}>-</button> 
-                    <button onClick={handleAbout3}>x</button>
+                    <button name="minimise" onClick={handleAbout3}>-</button> 
+                    <button name="close" onClick={handleAbout3}>x</button>
                   </div>
                 </div>
                 <p>
@@ -106,25 +127,37 @@ function About() {
         </div>
 
         <span className="taskbar">
-          <div className="start">Start</div>
+          <div className="start">
+            <button onClick={handleStart} className="start-button">Start</button>
+            {start && 
+              <div ref={startMenuRef} className="start-window">
+                <span>Cat Pictures</span>
+                <span>Dog Pictures</span>
+                <span>Bird Pictures</span>
+                <span>Computer</span>
+              </div>
+            }
+          </div>
           <div className="apps-container">
             <i className="bi bi-envelope"></i>
             <i className="bi bi-globe2"></i>
           </div>
           <div className="programs-container">
-            {about1 &&
-              <button className="taskbar-icon-01">brief-introd...</button>
+            {about1.open &&
+              <button name="open" onClick={handleAbout1} className="taskbar-icon-01">brief-introd...</button>
             }
-            {about2 &&
-              <button className="taskbar-icon-02">history_01...</button>
+            {about2.open &&
+              <button name="open" onClick={handleAbout2} className="taskbar-icon-02">history_01...</button>
             } 
-            {about3 &&
-              <button className="taskbar-icon-03">extra_stuff...</button>
+            {about3.open &&
+              <button name="open" onClick={handleAbout3} className="taskbar-icon-03">extra_stuff...</button>
             }
           </div>
           <div className="info-container">
             <i className="bi bi-volume-up-fill"></i>
-            <div>{time.toLocaleTimeString()}</div>
+            <div>
+              {time.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit', hour12: true })}
+            </div>
           </div>
         </span>
 
