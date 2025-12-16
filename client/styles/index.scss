@@ -270,7 +270,6 @@ main {
           animation: fuzzy-in .5s;
         }
       }
-
     }
 
     .carousel-preview-image {
@@ -573,7 +572,6 @@ main {
         }
       }
       
-      
       .apps-container {
         display: flex;
         align-items: center;
@@ -624,6 +622,7 @@ main {
         border-right: 2px solid var(--color-white);
         border-bottom: 2px solid var(--color-white);
         margin-left: auto;
+        padding: 0px 5px 0px 5px;
       }
     }
   }

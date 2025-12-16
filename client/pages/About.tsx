@@ -20,25 +20,23 @@ function About() {
     }
   }, [])
 
-  const handleAbout1 = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleAbout = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { name } = event.currentTarget
-    if (name === 'open') setAbout1({ minimise: false, open: true })
-    if (name === 'minimise') setAbout1({ minimise: true, open: true })
-    if (name === 'close') setAbout1({ minimise: false, open: false })
-  }
-
-  const handleAbout2 = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const { name } = event.currentTarget
-    if (name === 'open') setAbout2({ minimise: false, open: true })
-    if (name === 'minimise') setAbout2({ minimise: true, open: true })
-    if (name === 'close') setAbout2({ minimise: false, open: false })
-  }
-
-  const handleAbout3 = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const { name } = event.currentTarget
-    if (name === 'open') setAbout3({ minimise: false, open: true })
-    if (name === 'minimise') setAbout3({ minimise: true, open: true })
-    if (name === 'close') setAbout3({ minimise: false, open: false })
+    if (name.includes("1")) {
+        if (name.includes('open')) setAbout1({ minimise: false, open: true })
+        if (name.includes('minimise')) setAbout1({ minimise: true, open: true })
+        if (name.includes('close')) setAbout1({ minimise: false, open: false })
+    }
+    if (name.includes("2")) {
+        if (name.includes('open')) setAbout2({ minimise: false, open: true })
+        if (name.includes('minimise')) setAbout2({ minimise: true, open: true })
+        if (name.includes('close')) setAbout2({ minimise: false, open: false })
+    }
+    if (name.includes("3")) {
+        if (name.includes('open')) setAbout3({ minimise: false, open: true })
+        if (name.includes('minimise')) setAbout3({ minimise: true, open: true })
+        if (name.includes('close')) setAbout3({ minimise: false, open: false })
+    }
   }
 
   const handleStart = () => {
@@ -63,15 +61,15 @@ function About() {
 
         <div className="desktop-container">
           <div className="icon-container">
-            <button name="open" onDoubleClick={handleAbout1} className="desktop-icon">
+            <button name="open 1" onDoubleClick={handleAbout} className="desktop-icon">
               <img src="/Cats_03.png" alt="cat" />
               <p>My Computer</p>
             </button>
-            <button name="open" onDoubleClick={handleAbout2} className="desktop-icon">
+            <button name="open 2" onDoubleClick={handleAbout} className="desktop-icon">
               <img src="/Cats_03.png" alt="cat" />
               <p>Documents</p>
             </button>
-            <button name="open" onDoubleClick={handleAbout3} className="desktop-icon">
+            <button name="open 3" onDoubleClick={handleAbout} className="desktop-icon">
               <img src="/Cats_03.png" alt="cat" />
               <p>Internet Explorer</p>
             </button>
@@ -83,8 +81,8 @@ function About() {
                 <div className="top-bar">
                   <p>brief-introduction-inprogress.txt</p>
                   <div className="buttons">
-                    <button name="minimise" onClick={handleAbout1}>-</button> 
-                    <button name="close" onClick={handleAbout1}>x</button>
+                    <button name="minimise 1" onClick={handleAbout}>-</button> 
+                    <button name="close 1" onClick={handleAbout}>x</button>
                   </div>
                 </div>
                 <p>
@@ -100,8 +98,8 @@ function About() {
                 <div className="top-bar">
                   <p>history_01_final_final.txt</p>
                   <div className="buttons">
-                    <button name="minimise" onClick={handleAbout2}>-</button> 
-                    <button name="close" onClick={handleAbout2}>x</button>
+                    <button name="minimise 2" onClick={handleAbout}>-</button> 
+                    <button name="close 2" onClick={handleAbout}>x</button>
                   </div>
                 </div>
                 <p>
@@ -114,8 +112,8 @@ function About() {
                 <div className="top-bar">
                   <p>extra_stuff_03.txt</p>
                   <div className="buttons">
-                    <button name="minimise" onClick={handleAbout3}>-</button> 
-                    <button name="close" onClick={handleAbout3}>x</button>
+                    <button name="minimise 3" onClick={handleAbout}>-</button> 
+                    <button name="close 3" onClick={handleAbout}>x</button>
                   </div>
                 </div>
                 <p>
@@ -131,9 +129,9 @@ function About() {
             <button onClick={handleStart} className="start-button">Start</button>
             {start && 
               <div ref={startMenuRef} className="start-window">
-                <button name="open" onClick={handleAbout1}>Cat Pictures</button>
-                <button name="open" onClick={handleAbout2}>Dog Pictures</button>
-                <button name="open" onClick={handleAbout3}>Bird Pictures</button>
+                <button name="open 1" onClick={handleAbout}>Cat Pictures</button>
+                <button name="open 2" onClick={handleAbout}>Dog Pictures</button>
+                <button name="open 3" onClick={handleAbout}>Bird Pictures</button>
                 <button>Computer</button>
               </div>
             }
@@ -144,13 +142,13 @@ function About() {
           </div>
           <div className="programs-container">
             {about1.open &&
-              <button name="open" onClick={handleAbout1} className="taskbar-icon-01">brief-introd...</button>
+              <button name="open 1" onClick={handleAbout} className="taskbar-icon-01">brief-introd...</button>
             }
             {about2.open &&
-              <button name="open" onClick={handleAbout2} className="taskbar-icon-02">history_01...</button>
+              <button name="open 2" onClick={handleAbout} className="taskbar-icon-02">history_01...</button>
             } 
             {about3.open &&
-              <button name="open" onClick={handleAbout3} className="taskbar-icon-03">extra_stuff...</button>
+              <button name="open 3" onClick={handleAbout} className="taskbar-icon-03">extra_stuff...</button>
             }
           </div>
           <div className="info-container">
@@ -162,40 +160,6 @@ function About() {
         </span>
 
       </section>
-      
-      {/* <section className="about-blurb-container">
-        <div className="background-image" />
-        <div className="text-container">
-          <div className="text-chunk">
-            <p>
-              hi.
-            </p>
-            <p>
-              my name is leo walton-van den brink -- i'm an artist from new zealand. welcome to my website, i'll be posting all my art, websites, and anything else i fancy here. this is a place for me to just make what i want.<br/> as someone who was born in a family of artists, i have been cursed to never really have any money, but at least i can make things look nice. music is also a huge passion of mine: and if all is going well, you'll be able to find a little music making website here (still in development). 
-            </p>
-          </div>
-          <div className="text-chunk">
-            <p>
-              i started learning web development in the netherlands, learning some python, then moving onto javascript, css, html, and eventually typescript and vue. after about 9 months of study, i moved back to new zealand and finished my study at dev academy aotearoa, with react. <br/>learning became a huge focus for me during this time, learning everything: my music, my art, my coding, and also just life skills like cooking, house and car maintenance, all of it. 
-            </p>
-          </div>
-          <div className="text-chunk">
-            <p>
-              i'm from the kapiti coast and wellington region, love nature, and retro colours. big socialist, and advocate for humanity: which means, fuck trump and the right, capitalism is awful, let's just try to love each other, please.
-            </p>
-          </div>
-          <div className="text-chunk">
-            <p>
-              here's a cool cat drawing.
-            </p>
-          </div>
-          <img src="/cats_03.png" alt="cat" />
-        </div>
-
-        <div className="">
-
-        </div>
-      </section> */}
     </main>
   )
 }
