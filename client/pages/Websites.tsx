@@ -16,9 +16,9 @@ function Websites() {
 
       <section className="websites">
 
-        <svg viewBox="0 0 100 100">
+        {/* <svg viewBox="0 0 100 100">
           <path pathLength={1} stroke="black" strokeWidth={5} fill="none" />
-        </svg>
+        </svg> */}
 
         <div className="music-machine-container">
           <Link to={""}>
