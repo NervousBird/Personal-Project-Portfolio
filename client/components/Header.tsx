@@ -1,11 +1,13 @@
 interface Props {
-  title: string[]
+  title: string
 }
 
 function PageHeader({ title }: Props) {
+  const titleArray = title.split('')
+
   return (
     <header>
-      {title.map((letter, idx) => (
+      {titleArray.map((letter, idx) => (
         <h1 key={`${letter}-${idx}`}>{letter}</h1>
       ))}
     </header>

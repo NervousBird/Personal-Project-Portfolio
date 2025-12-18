@@ -9,7 +9,7 @@ export const backgroundImageStyle = [
   { backgroundImage: `url('/website_illustrations.png')` },
   { backgroundImage: `url('/website_portraits.png')` },
   { backgroundImage: `url('/website_landscapes.png')` },
-  { backgroundImage: `url('/website_landscapes.png')` },
+  { backgroundImage: `url('/website_studies.png')` },
 ]
 
 // Illustrations Object
@@ -461,19 +461,19 @@ export const landscapesObject = [
     description: '',
   },
   {
-    id: 8,
+    id: 7,
     title: 'Overgrown Train Station',
     link: 'https://live.staticflickr.com/65535/54990952220_a2cd7dbfff_b.jpg',
     description: '',
   },
   {
-    id: 9,
+    id: 6,
     title: 'Pōhutukawa',
     link: 'https://live.staticflickr.com/65535/54990909284_7cfb798cfe_b.jpg',
     description: '',
   },
   {
-    id: 10,
+    id: 9,
     title: 'Backgarden',
     link: 'https://live.staticflickr.com/65535/54990914959_72c4ebbded_b.jpg',
     description: '',
@@ -542,7 +542,7 @@ export const studiesObject = [
     description: '',
   },
   {
-    id: 12,
+    id: 11,
     title: 'Studies 11',
     link: 'https://live.staticflickr.com/65535/54990916354_6391fd1159_b.jpg',
     description: '',

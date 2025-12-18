@@ -8,7 +8,6 @@ function Portfolio() {
   // Call to API to load images from host (instead of hosting it all locally) have each image it's own call so user doesn't have to wait for them all to load
   const [gallery, setGallery] = useState(illustrationsObject)
   const [background, setBackground] = useState(backgroundImageStyle[0])
-  const titleArray = "Portfolio".split("")
 
   const handleNavClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { name } = e.target as HTMLButtonElement
@@ -25,7 +24,7 @@ function Portfolio() {
 
   return (
     <main className="portfolio-container">
-      <PageHeader title={titleArray} />
+      <PageHeader title={"Portfolio"} />
       <Nav />
       <section
         key={background.backgroundImage}
