@@ -55,6 +55,8 @@ function Carousel({ galleryObjects }: Props) {
         </div>
       </div>
 
+      <hr />
+
       <div className="carousel-navigator-container">
         {galleryObjects?.map((image, idx) => (
           <button key={idx} className="carousel-preview-image" onClick={() => handleCarousel(idx)}>
