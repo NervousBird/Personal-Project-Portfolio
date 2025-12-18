@@ -4,6 +4,13 @@ import Nav from "../components/layout/Nav"
 import Carousel from "../components/Carousel"
 import PageHeader from "../components/Header"
 
+    const galleryMap = [
+      illustrationsObject,
+      portraitsObject,
+      landscapesObject,
+      studiesObject,
+    ]
+
 function Portfolio() {
   // Call to API to load images from host (instead of hosting it all locally) have each image it's own call so user doesn't have to wait for them all to load
   const [gallery, setGallery] = useState(illustrationsObject)
@@ -12,12 +19,7 @@ function Portfolio() {
   const handleNavClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { name } = e.target as HTMLButtonElement
     const galleryIndex = Number(name)
-    const galleryMap = [
-      illustrationsObject,
-      portraitsObject,
-      landscapesObject,
-      studiesObject,
-    ]
+
     setBackground(backgroundImageStyle[galleryIndex])
     setGallery(galleryMap[galleryIndex])
   }
