@@ -1,43 +1,33 @@
 import React, { useState } from "react"
-import { illustrationsObject, landscapesObject, portraitsObject } from "../utils/image-libraries"
+import { backgroundImageStyle, illustrationsObject, landscapesObject, portraitsObject, studiesObject } from "../utils/image-libraries"
 import Nav from "../components/layout/Nav"
 import Carousel from "../components/Carousel"
+import PageHeader from "../components/Header"
 
-const backgroundImageStyle = [
-  {backgroundImage: `url('/website_illustrations.png')`},
-  {backgroundImage: `url('/website_portraits.png')`},
-  {backgroundImage: `url('/website_landscapes.png')`},
-]
+    const galleryMap = [
+      illustrationsObject,
+      portraitsObject,
+      landscapesObject,
+      studiesObject,
+    ]
 
 function Portfolio() {
   // Call to API to load images from host (instead of hosting it all locally) have each image it's own call so user doesn't have to wait for them all to load
   const [gallery, setGallery] = useState(illustrationsObject)
   const [background, setBackground] = useState(backgroundImageStyle[0])
-  const titleArray = "Portfolio".split("")
 
   const handleNavClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { name } = e.target as HTMLButtonElement
     const galleryIndex = Number(name)
-    const galleryMap = [
-      illustrationsObject,
-      portraitsObject,
-      landscapesObject,
-    ]
+
     setBackground(backgroundImageStyle[galleryIndex])
     setGallery(galleryMap[galleryIndex])
   }
 
   return (
     <main className="portfolio-container">
-      
-      <header>
-        {titleArray.map((letter, idx) => (
-          <h1 key={`${letter}-${idx}`}>{letter}</h1>
-        ))}
-      </header>
-
+      <PageHeader title={"Portfolio"} />
       <Nav />
-
       <section
         key={background.backgroundImage}
         className="portfolio-categories-container"
@@ -46,20 +36,18 @@ function Portfolio() {
           <button name="0" onClick={handleNavClick}>Illustrations</button>
           <button name="1" onClick={handleNavClick}>Portraits</button>
           <button name="2" onClick={handleNavClick}>Landscapes</button>
+          <button name="3" onClick={handleNavClick}>Studies</button>
         </div>
       </section>
-
-      <hr></hr>
-        <div className="scrolling-text-container">
-          <div className="scrolling-text">
-            <h3>Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.</h3>
-            <h3>Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.</h3>
-          </div>
+      <hr />
+      <div className="scrolling-text-container">
+        <div className="scrolling-text">
+          <h3>Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.</h3>
+          <h3>Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.Gallery.</h3>
         </div>
-      <hr></hr>
-
+      </div>
+      <hr />
       <Carousel galleryObjects={gallery} />
-
     </main>
   )
 }
