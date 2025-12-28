@@ -47,7 +47,9 @@ function Portfolio() {
         </div>
       </div>
       <hr />
+
       <Carousel galleryObjects={gallery} />
+
     </main>
   )
 }

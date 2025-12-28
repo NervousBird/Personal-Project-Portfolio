@@ -181,6 +181,7 @@ main {
 
 // Portfolio Page -- Desktop
 .portfolio-container {
+
   header {
     display: flex;
     justify-content: center;
@@ -523,7 +524,12 @@ main {
           transition: background-color .1s ease;
         }
       }
+
+      .about-window.focus {
+        outline: 2px dotted var(--font-orange);
+      }
     }
+
 
     .taskbar {
       display: flex;

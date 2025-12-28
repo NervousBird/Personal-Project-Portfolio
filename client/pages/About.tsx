@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Nav from "../components/layout/Nav"
-import { useClickOutside } from "../utils/utils"
+import { useClickOutside, useClickWindow } from "../utils/utils"
 
 function About() {
   const titleArray = "About".split("")
@@ -9,6 +9,7 @@ function About() {
   const [about2, setAbout2] = useState({ minimise: false, open: true })
   const [about3, setAbout3] = useState({ minimise: false, open: true })
   const [start, setStart] = useState(false)
+  const [focus, setFocus] = useState(1)
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -41,6 +42,8 @@ function About() {
     if(action === 'close') {
       setter({ minimise: false, open: false })
     }
+    setFocus(Number(id))
+    console.log(focus)
   }
 
   const handleStart = () => {
@@ -51,6 +54,12 @@ function About() {
     setStart(false)
   })
 
+  const windowsRef1 = useClickWindow(() => {
+  })
+  const windowsRef2 = useClickWindow(() => {
+  })
+  const windowsRef3 = useClickWindow(() => {
+  })
   return (
     <main className="about-container">
       <header>
@@ -81,7 +90,7 @@ function About() {
 
           <div className="window-container">
             {about1.open && !about1.minimise &&
-              <div key={`about1${about1.open}${about1.minimise}`} className="about-window"> 
+              <div key={`about1${about1.open}${about1.minimise}`} ref={windowsRef1} className={focus === 1 ? "about-window focus" : "about-window"}> 
                 <div className="top-bar">
                   <p>brief-introduction-inprogress.txt</p>
                   <div className="buttons">
@@ -98,7 +107,7 @@ function About() {
               </div>
             }
             {about2.open && !about2.minimise &&
-              <div key={`about2${about2.open}${about2.minimise}`} className="about-window"> 
+              <div key={`about2${about2.open}${about2.minimise}`} ref={windowsRef2} className={focus === 2 ? "about-window focus" : "about-window"}> 
                 <div className="top-bar">
                   <p>history_01_final_final.txt</p>
                   <div className="buttons">
@@ -112,7 +121,7 @@ function About() {
               </div>
             }
             {about3.open && !about3.minimise &&
-              <div key={`about3${about3.open}${about3.minimise}`} className="about-window"> 
+              <div key={`about3${about3.open}${about3.minimise}`} ref={windowsRef3} className={focus === 3 ? "about-window focus" : "about-window"}> 
                 <div className="top-bar">
                   <p>extra_stuff_03.txt</p>
                   <div className="buttons">
