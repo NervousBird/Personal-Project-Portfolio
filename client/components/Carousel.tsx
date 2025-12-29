@@ -8,7 +8,7 @@ interface Props {
 
 function Carousel({ galleryObjects }: Props) {
   const [count, setCount] = useState(0)
- const [title, setTitle] = useState(galleryObjects[count]?.title || '')
+  const [title, setTitle] = useState(galleryObjects[count]?.title || '')
 
   useEffect(() => {
     setCount(0)
@@ -64,6 +64,8 @@ function Carousel({ galleryObjects }: Props) {
           </button>
         ))}
       </div>
+
+      <hr />
 
     </section>
   )
