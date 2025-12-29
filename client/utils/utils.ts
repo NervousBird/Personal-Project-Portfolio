@@ -33,7 +33,6 @@ export function useClickWindow<T extends HTMLElement = HTMLDivElement>(
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
       if (!ref.current) {
-        console.log("other")
         return
       }
       if (ref.current.contains(event.target as Node)) {
@@ -56,3 +55,4 @@ export function useClickWindow<T extends HTMLElement = HTMLDivElement>(
   
   return ref
 }
+
