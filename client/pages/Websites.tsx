@@ -16,24 +16,20 @@ function Websites() {
 
       <section className="websites">
 
-        {/* <svg viewBox="0 0 100 100">
-          <path pathLength={1} stroke="black" strokeWidth={5} fill="none" />
-        </svg> */}
-
         <div className="music-machine-container">
-          <Link to={""}>
+          <Link target="_blank" to={"https://github.com/NervousBird/Music-Machine"}>
             <h3>Music Machine</h3>
             <p>A little site to make basic music.</p>
-            <img src="" alt="" />
           </Link>
         </div>
+
         <div className="finances-container">
-          <Link to={""}>
+          <Link target="_blank" to={"https://github.com/NervousBird/Leo-Personal-Project-1"}>
             <h3>Finances</h3>
             <p>Manage your finances - isn't that fun?!</p>
-            <img src="" alt="" />
           </Link>
         </div>
+
       </section>
     </main>
   )

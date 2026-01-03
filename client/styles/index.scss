@@ -396,6 +396,9 @@ main {
   padding: 0 0 10rem 0;
 
   header {
+    background-image: linear-gradient(to bottom, var(--font-blue), var(--background-periwinkle));
+    background-size: 100% 50px;
+    background-repeat: repeat;
     display: flex;
     justify-content: center;
     padding: 2rem;
@@ -759,14 +762,17 @@ main {
   font-family: "SUSE Mono";
   font-size: calc(.7rem + .3vw);
   background: linear-gradient(to bottom, var(--shade-yellow) 50%, var(--font-blue) 50%);
-  background-image: radial-gradient(var(--font-magenta) 10%, transparent 15%); 
-  background-size: 20px 20px;
-    background-repeat: repeat; header {
+  background-image: radial-gradient(var(--font-magenta) 5%, transparent 10%); 
+  background-size: 25px 25px;
+  background-repeat: repeat;
+  min-height: 100vh;
+  animation: move 5s linear infinite;
+
+  header {
     display: flex;
     justify-content: center;
     padding: 2rem;
   }
-  min-height: 100vh;
 
   .background-image {
     background-image: url('/Website_Backsplash.png');
@@ -920,6 +926,22 @@ main {
   min-height: 100vh;
   font-family: "SUSE Mono";
   font-size: 1.3rem;
+  background: linear-gradient(to bottom, var(--shade-yellow) 50%, var(--font-blue) 50%);
+  background-image: radial-gradient(var(--font-blue) 25%, transparent 30%); 
+  background-size: 50px 50px;
+  background-repeat: repeat;
+  animation: move 5s linear infinite;
+
+  header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  @keyframes move {
+    from {background-position: 0px 0px}
+    to {background-position: 0px 50px}
+  }
 
   header {
     display: flex;
@@ -932,45 +954,82 @@ main {
     justify-self: center;
     justify-content: center;
     max-width: 80vw;
-    gap: 10px;
+    gap: 2rem;
     margin: 3vw;  
 
+    .finances-container,
     .music-machine-container {
-      background-color: var(--shade-periwinkle);
+      display: flex;
+      flex-direction: column;
+      background-image: url("https://live.staticflickr.com/65535/55019154617_4c1ee31c72_b.jpg");
+      background-size: cover;
       width: 250px;
       padding: 10px;
-      border: 2px solid var(--font-yellow);
+      outline: 2px solid var(--font-yellow);
+      transition: scale .2s ease;
 
       h3 {
         font-size: 3rem;
+        color: var(--font-blue);
+        transition: color .5s ease;
       }
 
       p {
         font-size: 1rem;
+        transition: color .5s ease;
       }
-    }
-
-    .music-machine-container:hover {
-      background-color: var(--font-orange);
     }
 
     .finances-container {
-      background-color: var(--font-blue);
-      width: 250px;
-      padding: 10px;
-      border: 2px solid var(--font-yellow);
+      background-image: url("https://live.staticflickr.com/65535/55020220343_98cdb57de2_b.jpg");
 
       h3 {
-        font-size: 3rem;
+        color: var(--font-yellow);
       }
 
       p {
-        font-size: 1rem;
+        color: var(--color-white);
       }
     }
 
     .finances-container:hover {
-      background-color: var(--font-yellow);
+      outline: 4px solid var(--font-pink);
+      scale: 1.05;
+      transition: scale .2s ease;
+      h3 {
+        color: var(--font-orange);
+        transition: 
+          color .5s ease
+          text-shadow .5s ease;
+        text-shadow: .1vw .1vw var(--font-magenta); 
+      }
+      p {
+        color: var(--font-magenta);
+        transition: 
+          color .5s ease
+          text-shadow .5s ease;
+        text-shadow: .1vw .1vw var(--font-blue);
+      }
+    }
+
+    .music-machine-container:hover {
+      outline: 4px solid var(--font-pink);
+      scale: 1.05;
+      transition: scale .2s ease;
+      h3 {
+        color: var(--font-magenta);
+        transition: 
+          color .5s ease
+          text-shadow .5s ease;
+        text-shadow: .1vw .1vw var(--font-blue);
+      }
+      p {
+        color: var(--font-orange);
+        transition: 
+          color .5s ease
+          text-shadow .5s ease;
+        text-shadow: .1vw .1vw var(--font-magenta);
+      }
     }
   }
 }
