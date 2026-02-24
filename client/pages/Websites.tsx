@@ -1,8 +1,15 @@
 import { Link } from "react-router"
+import { useState } from 'react'
 import Nav from "../components/layout/Nav"
+import WebsiteCard from "../components/WebsiteCard.tsx"
 
 function Websites() {
   const titleArray = "Websites".split("")
+  const [toggle, setToggle] = useState(true)
+
+  const handleExpand = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setToggle(!toggle)
+  }
 
   return (
     <main className="websites-container">
@@ -16,19 +23,23 @@ function Websites() {
 
       <section className="websites">
 
-        <div className="music-machine-container">
-          <Link target="_blank" to={"https://github.com/NervousBird/Music-Machine"}>
-            <h3>Music Machine</h3>
-            <p>A little site to make basic music.</p>
-          </Link>
-        </div>
+        <WebsiteCard
+          classTitle={"music-machine-container"}
+          title={"Music-Machine"}
+          blurb={"A little site to make basic music."}
+          about={"Create and play litte tunes in the browser!"}
+          github={"https://github.com/NervousBird/Music-Machine"}
+          website={""}
+        />
 
-        <div className="finances-container">
-          <Link target="_blank" to={"https://github.com/NervousBird/Leo-Personal-Project-1"}>
-            <h3>Finances</h3>
-            <p>Manage your finances - isn't that fun?!</p>
-          </Link>
-        </div>
+        <WebsiteCard
+          classTitle={"finances-container"}
+          title={"Finances"}
+          blurb={"Manage your finances - isn't that fun?"}
+          about={"Manage your own finances in a simple app, hosted on your own machine."}
+          github={"https://github.com/NervousBird/Leo-Personal-Project-1"}
+          website={""}
+        />
 
       </section>
     </main>

@@ -256,7 +256,6 @@ main {
         box-shadow: 0px 3px 1px 2px var(--shade-orange);
         transition: background-color .2s ease;
 
-        
       }
 
       button:hover {
@@ -272,7 +271,7 @@ main {
 
     .carousel-element {
       display: flex;
-      
+
       button {
         font-size: 2vw;
       }
@@ -963,41 +962,79 @@ main {
       flex-direction: column;
       background-image: url("https://live.staticflickr.com/65535/55019154617_4c1ee31c72_b.jpg");
       background-size: cover;
+      background-position: center;
       width: 250px;
+      height: 100%;
       padding: 10px;
       outline: 2px solid var(--font-yellow);
       transition: scale .2s ease;
 
-      h3 {
-        font-size: 3rem;
-        color: var(--font-blue);
-        transition: color .5s ease;
+      .main-card {
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+
+        h3 {
+          font-size: 3rem;
+          color: var(--font-orange);
+          transition: color .5s ease;
+        }
+
+        p {
+          font-family: CUBANO;
+          font-size: 1rem;
+          transition: color .5s ease;
+          color: var(--color-white);
+          background-color: color-mix(in hsl, var(--font-blue) 50%, transparent 50%);
+        }
+
+        button {
+          text-align: center;
+        }
       }
 
-      p {
-        font-size: 1rem;
-        transition: color .5s ease;
+      .info-card {
+        height: 0px;
+        overflow: hidden;
+        transition: height .2s ease;
+
+        p {
+          font-size: 1rem;
+          background-color: color-mix(in hsl, var(--color-white) 50%, transparent 50%);
+          padding: 5px;
+        }
+
+        a {
+          font-size: 1.2rem;
+          background-color: var(--font-blue);
+          padding: 5px;
+          margin: 5px;
+          outline: 2px solid var(--font-yellow);
+        }
       }
     }
 
     .finances-container {
       background-image: url("https://live.staticflickr.com/65535/55020220343_98cdb57de2_b.jpg");
 
-      h3 {
-        color: var(--font-yellow);
-      }
+      .main-card {
+        h3 {
+          color: var(--font-yellow);
+        }
 
-      p {
-        color: var(--color-white);
+        p {
+          color: var(--color-white);
+        }
       }
     }
 
     .finances-container:hover {
+      background-image: linear-gradient(rgba(0,0,30,0), rgba(0,0,30,0)), url("https://live.staticflickr.com/65535/55020220343_98cdb57de2_b.jpg");
       outline: 4px solid var(--font-pink);
       scale: 1.05;
-      transition: scale .2s ease;
+      transition: scale .2s ease,;
       h3 {
-        color: var(--font-orange);
+        color: var(--font-blue);
         transition: 
           color .5s ease
           text-shadow .5s ease;
@@ -1016,19 +1053,23 @@ main {
       outline: 4px solid var(--font-pink);
       scale: 1.05;
       transition: scale .2s ease;
-      h3 {
-        color: var(--font-magenta);
-        transition: 
-          color .5s ease
-          text-shadow .5s ease;
-        text-shadow: .1vw .1vw var(--font-blue);
-      }
-      p {
-        color: var(--font-orange);
-        transition: 
-          color .5s ease
-          text-shadow .5s ease;
-        text-shadow: .1vw .1vw var(--font-magenta);
+
+      .main-card {
+        h3 {
+          display: flex;
+          color: var(--font-magenta);
+          transition: 
+            color .5s ease
+            text-shadow .5s ease;
+          text-shadow: .1vw .1vw var(--font-blue);
+        }
+        p {
+          color: var(--font-orange);
+          transition: 
+            color .5s ease
+            text-shadow .5s ease;
+          text-shadow: .1vw .1vw var(--font-magenta);
+        }
       }
     }
   }
