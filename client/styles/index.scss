@@ -23,6 +23,14 @@
 
 }
 
+::-webkit-scrollbar {
+
+  &-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+}
+
 @font-face {
   font-family: CUBANO;
   src: url('fonts/CUBANO.TTF');
@@ -290,12 +298,18 @@ main {
 
     .carousel-navigator-container {
       display: flex;
-      justify-content: center;
+      justify-content: left;
       max-width: 80vw;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      height: 200px;
+      left: 0;
+
+      overflow-x: scroll;
+      scrollbar-color: var(--background-periwinkle) var(--font-orange);
 
       .carousel-preview-image {
         width: 100px;
+        min-width: 100px;
         height: 170px;
 
         img {
@@ -544,7 +558,7 @@ main {
     }
 
     .window-container {
-      position: fixed;
+      position: absolute;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -893,9 +907,13 @@ main {
 
       .message {
         display: grid;
-        grid-template-columns: .1fr .9fr;
-        justify-content: space-between;
+        grid-template-columns: .1fr 1fr;
+        justify-content: left;
         gap: 10px;
+
+        #message {
+          width: auto;
+        }
       }
 
       .name-email {

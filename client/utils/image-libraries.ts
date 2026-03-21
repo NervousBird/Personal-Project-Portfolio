@@ -41,7 +41,7 @@ export const illustrationsObject = [
   },
   {
     id: 5,
-    title: 'B**BS',
+    title: 'Body',
     link: 'https://live.staticflickr.com/65535/54966682723_e0974c9e3c_b.jpg',
     description: 'Naked woman stomach',
   },

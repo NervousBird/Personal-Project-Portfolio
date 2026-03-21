@@ -37,7 +37,7 @@ function Websites() {
           title={"Finances"}
           blurb={"Manage your finances - isn't that fun?"}
           about={"Manage your own finances in a simple app, hosted on your own machine."}
-          github={"https://github.com/NervousBird/Leo-Personal-Project-1"}
+          github={"https://github.com/NervousBird/cute-finances"}
           website={""}
         />
 
