@@ -31,7 +31,6 @@ function Contact() {
       setMessage('Fill in ALL the form, correctly.')
       setNotification(true)
     } else {
-      // eslint-disable-next-line promise/catch-or-return
       emailjs
         .sendForm(serviceId, templateId, form.current as string | HTMLFormElement, {
           publicKey: keyId,
@@ -46,9 +45,9 @@ function Contact() {
             }, 5000)
           },
           (error) => {
-            // console.log('FAILED...', error.text)
             setMessage('Something went wrong (oh no!), please try again.')
             setNotification(true)
+            error.log(error)
           },
         )
     }
@@ -91,7 +90,7 @@ function Contact() {
               <div className="button">O</div>
               <div className="button">X</div>
             </span>
-            
+
             <span>
               Please make sure your name and email are correct so that communications can proceed without issue.
             </span>

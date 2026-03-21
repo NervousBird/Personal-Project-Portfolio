@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 import Nav from "../components/layout/Nav"
 import WindowObject from "../components/Window"
 import { useClickOutside, useClickWindow } from "../utils/utils"
@@ -25,7 +25,6 @@ function About() {
   const handleAbout = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { name } = event.currentTarget
     const [action, id] = name.split(' ')
-    console.log("working", action, id)
 
     const setters: { [key: string]: React.Dispatch<React.SetStateAction<{ minimise: boolean; open: boolean }>> } = {
       '1': setAbout1,
@@ -54,13 +53,6 @@ function About() {
 
   const startMenuRef = useClickOutside(() => {
     setStart(false)
-  })
-
-  const windowsRef1 = useClickWindow(() => {
-  })
-  const windowsRef2 = useClickWindow(() => {
-  })
-  const windowsRef3 = useClickWindow(() => {
   })
 
   return (
@@ -99,7 +91,7 @@ function About() {
                 focus={focus}
                 onHandleAbout={handleAbout}
                 title={"brief-introduction-inprogress.txt"}
-                content={"My name is Leo Walton-van den Brink -- I'm an artist from New Zealand. Welcome to my website, I'll be posting all my art, websites, and anything else I fancy here. This is a place for me to just make what i want.<br/> As someone who was born in a family of artists, I have been cursed to never really have any money, but at least I can make things look nice. Music is also a huge passion of mine: and if all is going well, you'll be able to find a little music making website here (still in development)."} />
+                content={"My name is Leo Walton-van den Brink -- I'm an artist from New Zealand. Welcome to my website, I'll be posting all my art, websites, and anything else I fancy here. This is a place for me to just make what I want. As someone who was born in a family of artists, I have been cursed to never really have any money, but at least I can make things look nice. Music is also a huge passion of mine: and if all is going well, you'll be able to find a little music making website here (still in development)."} />
             }
 
             {about2.open && !about2.minimise &&
@@ -127,7 +119,7 @@ function About() {
         <span className="taskbar">
           <div className="start">
             <button onClick={handleStart} className="start-button">Start</button>
-            {start && 
+            {start &&
               <div ref={startMenuRef} className="start-window">
                 <button name="open 1" onClick={handleAbout}>Cat Pictures</button>
                 <button name="open 2" onClick={handleAbout}>Dog Pictures</button>
