@@ -48,21 +48,21 @@ body {
 }
 
 h1,h2,h3 {
-  font-family: CUBANO;  
+  font-family: CUBANO;
   margin: 0px;
-  padding: 2rem;  
+  padding: 2rem;
 }
 
 h1 {
   font-size: 12vw;
   line-height: 12vw;
   color: var(--font-yellow);
-  text-shadow: .6vw .8vw var(--font-magenta);  
+  text-shadow: .6vw .8vw var(--font-magenta);
 }
 
 h2 {
   font-size: 7vw;
-  color: var(--font-magenta); 
+  color: var(--font-magenta);
 }
 
 h3 {
@@ -71,7 +71,7 @@ h3 {
 }
 
 a {
-  font-family: CUBANO;  
+  font-family: CUBANO;
   font-size: 3vw;
   text-decoration: none;
   color: var(--font-yellow);
@@ -159,7 +159,7 @@ main {
 .home-container {
   min-height: 100vh;
   height: 100%;
-  background-image: url('/Website_background.png');
+  background-image: url('/Website_background.jpg');
   background-size: cover;
 
   .woman-container {
@@ -202,9 +202,9 @@ main {
   }
 
   .portfolio-categories-container {
-    background-image: url('/website_illustrations.png');
+    background-image: url('/website_illustrations.jpg');
     background-size: cover;
-    background-position: center;    
+    background-position: center;
     height: 25vw;
     max-width: 100%;
     margin: 1rem 0rem 3vw 0rem;
@@ -427,7 +427,7 @@ main {
     margin: 1rem;
 
     .manga-buttons-container {
-      background-image: url('/Kitty The Tiger.png');
+      background-image: url('/Kitty The Tiger.jpg');
       background-size: cover;
       width: 600px;
       height: 250px;
@@ -500,11 +500,11 @@ main {
 
 // About Page -- Desktop
 .about-container {
-  background-image: url('/Website_desktop.png');
+  background-image: url('/Website_desktop.jpg');
   background-size: cover;
   min-height: 100vh;
   font-family: "SUSE Mono";
-  font-size: 1.3rem; 
+  font-size: 1.3rem;
 
   header {
     display: flex;
@@ -775,7 +775,7 @@ main {
   font-family: "SUSE Mono";
   font-size: calc(.7rem + .3vw);
   background: linear-gradient(to bottom, var(--shade-yellow) 50%, var(--font-blue) 50%);
-  background-image: radial-gradient(var(--font-magenta) 5%, transparent 10%); 
+  background-image: radial-gradient(var(--font-magenta) 5%, transparent 10%);
   background-size: 25px 25px;
   background-repeat: repeat;
   min-height: 100vh;
@@ -812,7 +812,7 @@ main {
       padding: 10px;
       max-width: 50vw;
     }
-  } 
+  }
 
   .contact-form-container {
     .notification {
@@ -826,7 +826,7 @@ main {
         box-shadow: 0px 0px 4px 6px var(--font-orange);
         padding: 10px;
       }
-    } 
+    }
     form {
       display: flex;
       flex-direction: column;
@@ -859,7 +859,7 @@ main {
         }
         .button:active {
           background-color: var(--shade-blue);
-        } 
+        }
       }
 
       span {
@@ -944,7 +944,7 @@ main {
   font-family: "SUSE Mono";
   font-size: 1.3rem;
   background: linear-gradient(to bottom, var(--shade-yellow) 50%, var(--font-blue) 50%);
-  background-image: radial-gradient(var(--font-blue) 25%, transparent 30%); 
+  background-image: radial-gradient(var(--font-blue) 25%, transparent 30%);
   background-size: 50px 50px;
   background-repeat: repeat;
   animation: move 5s linear infinite;
@@ -972,7 +972,7 @@ main {
     justify-content: center;
     max-width: 80vw;
     gap: 2rem;
-    margin: 3vw;  
+    margin: 3vw;
 
     .finances-container,
     .music-machine-container {
@@ -1060,7 +1060,7 @@ main {
       }
       p {
         color: var(--font-magenta);
-        transition: 
+        transition:
           color .5s ease
           text-shadow .5s ease;
         text-shadow: .1vw .1vw var(--font-blue);
@@ -1083,7 +1083,7 @@ main {
         }
         p {
           color: var(--font-orange);
-          transition: 
+          transition:
             color .5s ease
             text-shadow .5s ease;
           text-shadow: .1vw .1vw var(--font-magenta);
@@ -1109,14 +1109,14 @@ main {
 }
 
 @keyframes fade-in-custom {
-  from { opacity: 0;} 
+  from { opacity: 0;}
   to { opacity: 1;}
 
 }
 
 @keyframes squish-out-custom {
   from { opacity: 1; transform: matrix(0); scale: 1;}
-  to { opacity: 0; transform: matrix(1, 1, 6, 6, 5, 1); scale: .5;}  
+  to { opacity: 0; transform: matrix(1, 1, 6, 6, 5, 1); scale: .5;}
 }
 
 @keyframes squish-in-custom {
@@ -1151,223 +1151,6 @@ main {
         button {
           font-size: calc(1.1rem + .3vw);
           transition: font-size .2s ease;
-        }
-      }
-    }
-  }
-}
-
-// Phone view adjustments
-@media only screen and (max-width: 1000px) {
-  .portfolio-container,
-  .manga-container,
-  .about-container,
-  .contact-container,
-  .websites-container {
-    header {
-      padding: 16px;
-
-      h1 {
-        font-size: 14vw;
-      }
-    }
-    .nav-container {
-      a {
-        font-size: 2.8vw;
-      }
-    }
-  }
-
-  .home-container {
-    .title-container {
-      padding: 16px;
-
-    }
-    .nav {
-      margin: 0px 16px;
-    }
-  }
-
-  .portfolio-container {
-    .portfolio-categories-container {
-        button {
-          font-size: 2.3vw;
-        }
-    }
-
-    hr {
-      height: 2px;
-    }
-
-    .portfolio-carousel-container {
-      .title-container {
-        outline: 2px solid var(--font-magenta);
-        h3 {
-          font-size: 1rem;
-          border-right: .5rem solid var(--font-yellow);
-        }
-      }
-
-      .button-container {
-        padding: 10px 0px;
-        button {
-          height: 20px;
-        }
-      }
-
-      hr {
-        height: 2px;
-      }
-
-      .carousel-navigator-container {
-        .carousel-preview-image {
-          padding: 1px 2px;
-          width: 75px;
-          height: 100px;
-        }
-      }
-    }
-  }
-
-  .about-container {
-    .about-desktop-container {
-
-      .window-container {
-        gap: .5rem;
-        .about-window {
-
-          p {
-            font-size: .8rem;
-            padding: 5px 10px;
-          }
-
-          .top-bar {
-            height: 20px;
-
-            p {
-              font-size: 1rem;
-              padding: 5px;
-            }
-            .buttons {
-              button {
-                height: 20px;
-                width: 20px;
-                font-size: 10px;
-              }
-            }
-          }
-        }
-      }
-
-      .icon-container {
-        grid-template-rows: repeat(3, 100px);
-
-        .desktop-icon {
-          width: 70px;
-          height: 100px;
-
-          img {
-            width: 50px;
-            height: 50px;
-          }
-
-          p {
-            height: 30px;
-            font-size: 10px;
-          }
-        }
-      }
-
-      .taskbar {
-        height: 20px;
-
-        .start {
-
-          .start-button {
-            font-size: 12px;
-            padding: 5px;
-          }
-        }
-
-        .apps-container {
-          font-size: 12px;
-          gap: .5rem;
-          padding: 0 .5rem;
-        }
-
-        .programs-container {
-          button {
-            font-size: 12px;
-            padding: 5px;
-            height: auto;
-            width: 60px;
-          }
-        }
-
-        .info-container {
-          gap: .5rem;
-          font-size: 12px;
-          div {
-            font-size: 10px;
-          }
-        }
-      }      
-    }
-  }
-
-  .contact-container {
-    .background-image {
-      .contact-info-container {
-        span {
-          font-size: .7rem;
-          max-width: 75vw;
-          padding: 5px;
-        }
-      }
-
-      .contact-form-container {
-        form {
-          width: 70vw;
-
-          .window-header {
-            padding: 0;
-          }
-
-          span {
-            padding: 10px;
-          }
-
-          .name-email {
-            grid-template-columns: 1fr 4fr;
-          }
-          .message {
-            grid-template-columns: 1fr;
-          }
-
-          .button-container {
-            justify-content: space-between;
-            span {
-              position: relative;
-              font-size: 6px;
-              justify-self: center;
-              align-self: center;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .websites-container {
-    .websites {
-      flex-direction: column;
-
-      .music-machine-container,
-      .finances-container {
-        width: 200px;
-
-        h3 {
-          font-size: 2rem;
         }
       }
     }

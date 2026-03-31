@@ -6,13 +6,14 @@ export interface GalleryObject {
 }
 
 export const backgroundImageStyle = [
-  { backgroundImage: `url('/website_illustrations.png')` },
-  { backgroundImage: `url('/website_portraits.png')` },
-  { backgroundImage: `url('/website_landscapes.png')` },
-  { backgroundImage: `url('/website_studies.png')` },
+  { backgroundImage: `url('/website_illustrations.jpg')` },
+  { backgroundImage: `url('/website_portraits.jpg')` },
+  { backgroundImage: `url('/website_landscapes.jpg')` },
+  { backgroundImage: `url('/website_studies.jpg')` },
 ]
 
 // Illustrations Object
+// TODO: Get 5 new images to replace the ones below
 export const illustrationsObject = [
   {
     id: 1,
@@ -28,7 +29,7 @@ export const illustrationsObject = [
     description: 'Girl, surrounded by technology and tigers',
   },
   {
-    id: 3,
+    id: 3, // CHANGE THIS
     title: 'Noodle Slurping',
     link: 'https://live.staticflickr.com/65535/54966682668_ed47cac518_b.jpg',
     description: 'Half nude woman eating ramen',
@@ -40,7 +41,7 @@ export const illustrationsObject = [
     description: 'Woman on a little bike, with a view of the ocean',
   },
   {
-    id: 5,
+    id: 5, // CHANGE THIS
     title: 'Body',
     link: 'https://live.staticflickr.com/65535/54966682723_e0974c9e3c_b.jpg',
     description: 'Naked woman stomach',
@@ -125,7 +126,7 @@ export const illustrationsObject = [
   },
   {
     id: 19,
-    title: 'Dunked Fish',
+    title: 'Dunked Fish', // CHANGE THIS
     link: 'https://live.staticflickr.com/65535/54989229808_f940d4dbe3_b.jpg',
     description: '',
   },
@@ -137,13 +138,13 @@ export const illustrationsObject = [
   },
   {
     id: 21,
-    title: 'Girl Friends',
+    title: 'Girl Friends', // CHANGE THIS
     link: 'https://live.staticflickr.com/65535/54989048191_70ea052c10_b.jpg',
     description: '',
   },
   {
     id: 22,
-    title: 'Placeholder',
+    title: 'Placeholder', // CHANGE THIS
     link: 'https://live.staticflickr.com/65535/54988154537_48d47a3261_b.jpg',
     description: '',
   },
