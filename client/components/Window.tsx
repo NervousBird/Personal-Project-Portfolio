@@ -10,7 +10,7 @@ interface Props {
   focus: number,
   title: string,
   content: string,
-  onHandleAbout: () => void,
+  onHandleAbout: (event: React.MouseEvent<HTMLButtonElement>) => void,
 }
 
 function WindowObject({idx, state, focus, title, content, onHandleAbout}: Props) {
