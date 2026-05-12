@@ -8,9 +8,10 @@ interface Props {
   about: string,
   github: string,
   website: string,
+  status: boolean,
 }
 
-function WebsiteCard({ classTitle, title, blurb, about, github, website }: Props) {
+function WebsiteCard({ classTitle, title, blurb, about, github, website, status }: Props) {
   const [toggle, setToggle] = useState(true)
 
   const handleExpand = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -22,6 +23,7 @@ function WebsiteCard({ classTitle, title, blurb, about, github, website }: Props
       <div className="main-card">
         <h3>{title}</h3>
         <p>{blurb}</p>
+        {!status && <p>in progress</p>}
         <button onClick={handleExpand}>{toggle ? "expand" : "shrink"}</button>
       </div>
       <div className={toggle ? "info-card expand" : "info-card"} style={toggle ? {height: "0px"} : {height: "200px"}}>
