@@ -25,11 +25,12 @@ function Websites() {
 
         <WebsiteCard
           classTitle={"music-machine-container"}
-          title={"Music-Machine"}
+          title={"Musics!"}
           blurb={"A little site to make basic music."}
           about={"Create and play litte tunes in the browser!"}
           github={"https://github.com/NervousBird/Music-Machine"}
           website={""}
+          status={false}
         />
 
         <WebsiteCard
@@ -39,6 +40,7 @@ function Websites() {
           about={"Manage your own finances in a simple app, hosted on your own machine."}
           github={"https://github.com/NervousBird/cute-finances"}
           website={""}
+          status={false}
         />
 
       </section>

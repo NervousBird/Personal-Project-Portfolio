@@ -1123,36 +1123,3 @@ main {
   from { opacity: 0; transform: matrix(1, 1, 6, 6, 5, 1); scale: .5}
   to { opacity: 1; transform: matrix(0); scale: 1}
 }
-
-// Tablet view adjustments
-@media only screen and (max-width: 1500px) {
-
-  .about-container {
-    .about-desktop-container {
-
-      .window-container {
-        .about-window {
-          p {
-            font-size: 1.1rem;
-            padding: 10px;
-          }
-        }
-      }
-    }
-  }
-
-  .contact-container {
-    .background-image {
-      .contact-form-container {
-        form {
-          width: 60vw;
-          transition: width .2s ease;
-        }
-        button {
-          font-size: calc(1.1rem + .3vw);
-          transition: font-size .2s ease;
-        }
-      }
-    }
-  }
-}

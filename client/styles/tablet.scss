@@ -1,0 +1,31 @@
+@media only screen and (max-width: 1500px) {
+
+  .about-container {
+    .about-desktop-container {
+
+      .window-container {
+        .about-window {
+          p {
+            font-size: 1.1rem;
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-container {
+    .background-image {
+      .contact-form-container {
+        form {
+          width: 60vw;
+          transition: width .2s ease;
+        }
+        button {
+          font-size: calc(1.1rem + .3vw);
+          transition: font-size .2s ease;
+        }
+      }
+    }
+  }
+}
