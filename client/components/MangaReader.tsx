@@ -1,10 +1,21 @@
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa6"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { kittyPages } from "../utils/kitty-the-tiger.ts"
 
-function MangaReader() {
+interface Props {
+  manga: Manga[]
+}
+
+type Manga = {
+  page: number
+  image: string
+  alt: string
+}
+
+function MangaReader({ manga }: Props) {
+  // NOTE: use localstorage to save users position in the manga
   const [page, setPage] = useState(0)
-  const [maxPage, setMaxPage] = useState(kittyPages.length - 1)
+  const [maxPage, setMaxPage] = useState(manga.length - 1)
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { name } = e.target as HTMLButtonElement
@@ -18,19 +29,34 @@ function MangaReader() {
     }
   }
 
-  const handleNavigate = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { name } = e.target as HTMLButtonElement
-    setPage(Number(name))
+  const handleNavigate = (e: React.MouseEvent<HTMLButtonElement> | React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target as HTMLButtonElement
+    setPage(Number(name) | Number(value))
   }
+
+  useEffect(() => {
+    setPage(0)
+  }, [manga])
 
   return (
     <div className="manga-reader-container">
+
+      <span>Chapters</span>
+      <div>
+        <select>
+          {/* NOTE: this needs to be updated to reflect the manga chapters (probably adding a new item to the dictionary item) */}
+          {manga.map((pageInfo, idx) => (
+            <option key={idx}>{pageInfo.page}</option>
+          ))}
+        </select>
+      </div>
+
       <span>Pages</span>
       <div className="page-container">
         <button name="back" onClick={handleClick}><FaCaretLeft /></button>
-        {kittyPages.map((pageInfo, idx) => (
+        {manga.map((pageInfo, idx) => (
           <button
-            name={pageInfo.page}
+            name={`${pageInfo.page}`}
             key={pageInfo.page}
             className={page === pageInfo.page ? "active" : ""}
             onClick={handleNavigate}
@@ -39,21 +65,31 @@ function MangaReader() {
           </button>
         ))}
         <button name="forward" onClick={handleClick}><FaCaretRight /></button>
+        <select onChange={handleNavigate} value={page}>
+          {manga.map((pageInfo, idx) => (
+            <option
+              key={idx}
+              value={`${pageInfo.page}`}
+            >
+              {pageInfo.page}
+            </option>
+          ))}
+        </select>
       </div>
 
-      {kittyPages[page] &&
+      {manga[page] &&
       <div className="manga-page-container">
         <button name="back" onClick={handleClick}><FaCaretLeft /></button>
-        <img key={page} src={kittyPages[page].image} alt={kittyPages[page].alt} />
+        <img key={page} src={manga[page].image} alt={manga[page].alt} />
         <button name="forward" onClick={handleClick}><FaCaretRight /></button>
       </div>
       }
 
       <div className="page-container">
         <button name="back" onClick={handleClick}><FaCaretLeft /></button>
-        {kittyPages.map((pageInfo, idx) => (
+        {manga.map((pageInfo, idx) => (
           <button
-            name={pageInfo.page}
+            name={`${pageInfo.page}`}
             key={pageInfo.page}
             className={page === pageInfo.page ? "active" : ""}
             onClick={handleNavigate}
@@ -62,6 +98,16 @@ function MangaReader() {
           </button>
         ))}
         <button name="forward" onClick={handleClick}><FaCaretRight /></button>
+        <select onChange={handleNavigate} value={page}>
+          {manga.map((pageInfo, idx) => (
+            <option
+              key={idx}
+              value={`${pageInfo.page}`}
+            >
+              {pageInfo.page}
+            </option>
+          ))}
+        </select>
       </div>
 
     </div>

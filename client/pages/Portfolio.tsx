@@ -37,6 +37,7 @@ function Portfolio() {
           <button name="1" onClick={handleNavClick}>Portraits</button>
           <button name="2" onClick={handleNavClick}>Landscapes</button>
           <button name="3" onClick={handleNavClick}>Studies</button>
+          <button className="strike-through" name="4" onClick={() => {}}>Traditional</button>
         </div>
       </section>
       <hr />
