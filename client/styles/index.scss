@@ -531,7 +531,7 @@ main {
 
       .image-block {
         // display: flex;
-        justify-self: right;
+        justify-self: center;
         margin: 30px;
         margin-left: 10vw;
         margin-right: 10vw;
@@ -551,7 +551,7 @@ main {
         }
       }
       .image-block:nth-child(2n) {
-        justify-self: left;
+        // justify-self: left;
       }
     }
   }
