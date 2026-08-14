@@ -10,7 +10,7 @@
 
 ## About Page
 
-[]-Moveable windows
+[x]-Moveable windows (sort of finished, has some bugs and needs mobile/tablet styling)
 []-Individual Icons for "Desktop" items
 
 ## Portfolio Page
@@ -26,6 +26,7 @@
 []-Create placeholders to show off design ideas that will eventually have finished mangas
 []-Drop down option to the select the page the user wants to go to
 []-Volume select (Kitty the Tiger etc will be more than just 1 chapter, so it needs another way to navigate through them instead of just the pages)
+[]-Add new manga (Make Kitty the Tiger a W.I.P)
 
 ## Websites Page
 

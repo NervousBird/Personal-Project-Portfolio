@@ -189,6 +189,17 @@ main {
     display: flex;
     margin-left: 2.4rem;
     gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 50vw;
+    text-shadow: 2px 4px var(--font-magenta);
+
+    a {
+      color: var(--font-yellow);
+    }
+    a:hover {
+      color: var(--font-magenta);
+      text-shadow: 2px 4px var(--font-blue);
+    }
   }
 }
 
@@ -263,7 +274,6 @@ main {
         border-radius: 5px;
         box-shadow: 0px 3px 1px 2px var(--shade-orange);
         transition: background-color .2s ease;
-
       }
 
       button:hover {
@@ -275,10 +285,18 @@ main {
         box-shadow: inset 0px 2px 2px 2px var(--shade-periwinkle);
         transition: background-color .2s ease;
       }
+
+      .amount-counter {
+        font-family: CUBANO, 'SUSE Mono', 'Rubik Mono One';
+        font-size: 20px;
+        font-weight: 800;
+        align-self: center;
+      }
     }
 
     .carousel-element {
       display: flex;
+      gap: 10px;
 
       button {
         font-size: 2vw;
@@ -292,6 +310,24 @@ main {
           width: 100%;
           max-height: 90vh;
           animation: fuzzy-in .5s;
+        }
+      }
+
+      .carousel-preview-container {
+        // min-height: 100%;
+        max-width: 400px;
+        align-self: center;
+
+        img {
+          width: 100%;
+          max-height: 90vh;
+          filter: blur(3px);
+          transition: filter .2s ease;
+        }
+
+        img:hover {
+          outline: 4px solid var(--font-orange);
+          filter: blur(0);
         }
       }
     }
@@ -399,10 +435,143 @@ main {
   to { filter: blur(0px); image-rendering: auto }
 }
 
+@keyframes kitty-loadin {
+  from { filter: blur(20px); }
+  to { filter: blur(0px); }
+}
+
+@keyframes image-pixelin {
+  from { filter: drop-shadow(16px 16px 20px red) invert(75%); image-rendering: pixelated; }
+  to { filter: drop-shadow(0px 0px 0px black) invert(0%); image-rendering: auto; }
+}
+
 @keyframes oldschool-loadin {
   from {  }
   to {  }
 }
+
+// Porjects Page -- Desktop
+// NOTE: multiple style types for this to change based on the project selected
+.projects-container {
+
+  --background-project1: rgb(0,0,0);
+  --background-project2: var(--font-magenta);
+
+  header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .projects-buttons-container {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(in srgb to bottom, var(--background-periwinkle), var(--font-yellow), var(--font-blue), var(--background-project2), var(--background-project1));
+    background-size: 100px;
+    background-repeat: repeat;
+    padding: 10px;
+
+    button {
+      height: 100%;
+      padding: 0;
+      margin: 5px;
+      // animation: 0.2s cubic-bezier(0.4, 0, 1, 1) both squish-in-custom;
+      animation: fuzzy-in 0.2s;
+      outline: 4px solid var(--font-yellow);
+      border: 3px solid var(--font-blue);
+      transition: outline .2s ease;
+
+      img {
+        display: block;
+        pointer-events: none;
+        max-width: 200px;
+      }
+    }
+    button:hover {
+      outline: 6px solid var(--font-magenta);
+      transition: outline .2s ease;
+      filter: blur(0px);
+    }
+    .fuzzy {
+      filter: blur(2px);
+    }
+  }
+
+  .projects-display-container {
+
+    .end {
+      background: black;
+    }
+  }
+
+  .kittythetiger-container {
+    background: black;
+    color: white;
+    overflow: none;
+
+    .title {
+      display: block;
+      justify-self: center;
+      width: 400px;
+      padding: 60px;
+      animation: image-pixelin 2s;
+    }
+
+    section {
+      margin: 30px;
+
+      h3 {
+        text-align: center;
+      }
+
+      h4 {
+        font-family: 'SUSE Mono', 'Rubik Mono One';
+        text-align: center;
+      }
+
+      .image-block {
+        // display: flex;
+        justify-self: center;
+        margin: 30px;
+        margin-left: 10vw;
+        margin-right: 10vw;
+
+        p {
+          font-family: 'SUSE Mono', 'Rubik Mono One';
+          font-size: 14px;
+          color: grey;
+          text-align: center;
+          margin: 0;
+          padding: 0;
+        }
+
+        img {
+          display: block;
+          animation: fuzzy-in .5s;
+        }
+      }
+      .image-block:nth-child(2n) {
+        // justify-self: left;
+      }
+    }
+  }
+
+  .hilltops-container {
+    background: black;
+
+    h2 {
+      padding: 10vw;
+      text-align: center;
+    }
+  }
+
+
+}
+
+.strike-through {
+  text-decoration: line-through;
+}
+
 
 // Manga Page -- Desktop
 .manga-container {
@@ -427,20 +596,50 @@ main {
     margin: 1rem;
 
     .manga-buttons-container {
-      background-image: url('/Kitty The Tiger.jpg');
       background-size: cover;
-      width: 600px;
-      height: 250px;
+      width: 370px;
+      height: 160px;
       display: flex;
       justify-content: center;
       align-items: center;
       outline: 2px solid var(--font-orange);
 
-      button {
-        font-size: calc(1.2rem + .5vw);
+      // button {
+      //   font-size: calc(1.2rem + .5vw);
+      //   // color: var(--font-magenta);
+      //   // filter: blur(1px);
+      // }
+      // :hover{
+      //   // filter: blur(0px);
+      //   color: var(--font-yellow);
+      //   outline: 4px solid var(--font-magenta);
+      // }
+
+      .kitty-button {
+        color: var(--font-pink);
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .kitty-button:hover {
         color: var(--font-magenta);
+        outline: 4px solid var(--font-yellow);
+      }
+      .other-button {
+        color: var(--font-blue);
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .other-button:hover {
+        color: var(--font-orange);
+        outline: 4px solid var(--font-pink);
       }
     }
+
+    .kitty-manga {
+      background-image: url('/Kitty The Tiger.jpg');
+    }
+    .other-manga {
+      background-image: url('/Other.jpg');
+    }
+
   }
 
   .manga-reader-container {
@@ -459,11 +658,13 @@ main {
       button {
         font-family: "SUSE Mono";
         font-size: calc(.3rem + .5vw);
-        width: calc(.4rem + .6vw);
-        height: calc(.3rem + .6vw);
       }
       .active {
         color: var(--font-magenta);
+      }
+
+      select {
+        font-family: "SUSE Mono";
       }
     }
 
@@ -478,6 +679,8 @@ main {
 
       button {
         align-self: center;
+        height: stretch;
+        width: 100px;
       }
     }
   }
@@ -505,6 +708,16 @@ main {
   min-height: 100vh;
   font-family: "SUSE Mono";
   font-size: 1.3rem;
+
+
+  .dragging {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
   header {
     display: flex;
@@ -558,7 +771,6 @@ main {
     }
 
     .window-container {
-      position: absolute;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -568,6 +780,7 @@ main {
       padding-top: 2rem;
 
       .about-window {
+        position: absolute;
         pointer-events: all;
         background-color: var(--background-paleblue);
         border-top: 3px solid var(--color-white);
@@ -637,6 +850,7 @@ main {
 
       .about-window.focus {
         outline: 2px dotted var(--font-orange);
+        z-index: 5;
       }
     }
 

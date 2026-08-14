@@ -1,4 +1,11 @@
 @media only screen and (max-width: 1500px) {
+  body {
+    width: 100vw !important;
+  }
+
+  .carousel-preview-image {
+    max-width: 250px;
+  }
 
   .about-container {
     .about-desktop-container {
@@ -24,6 +31,23 @@
         button {
           font-size: calc(1.1rem + .3vw);
           transition: font-size .2s ease;
+        }
+      }
+    }
+  }
+
+  .projects-container {
+
+    .kittythetiger-container {
+
+      section {
+
+        .image-block {
+          justify-self: center !important;
+
+          img {
+            max-width: 90vw;
+          }
         }
       }
     }

@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Nav from "../components/layout/Nav"
 import WindowObject from "../components/Window"
-import { useClickOutside, useClickWindow } from "../utils/utils"
+import { useClickOutside } from "../utils/utils"
 
 function About() {
+  const titleRef = useRef<HTMLDivElement | null>(null)
+  const pageRef = useRef<HTMLDivElement | null>(null)
   const titleArray = "About".split("")
   const [time, setTime] = useState(new Date())
   const [about1, setAbout1] = useState({ minimise: false, open: true })
@@ -11,8 +13,23 @@ function About() {
   const [about3, setAbout3] = useState({ minimise: false, open: true })
   const [start, setStart] = useState(false)
   const [focus, setFocus] = useState(1)
+  const [position, setPosition] = useState({
+    about1: {top: 300, left: 120},
+    about2: {top: 300, left: 600},
+    about3: {top: 300, left: 800},
+  })
 
   useEffect(() => {
+    if(titleRef.current) {
+      const height = titleRef.current.getBoundingClientRect().height + 70
+      const left = window.innerWidth / 3
+      setPosition((prev) => ({...prev,
+        about1: {top: height, left: left * 0},
+        about2: {top: height, left: left * 1},
+        about3: {top: height, left: left * 2},
+      }))
+    }
+
     const timerId = setInterval(() => {
       setTime(new Date())
     }, 60000)
@@ -20,6 +37,7 @@ function About() {
     return () => {
       clearInterval(timerId)
     }
+
   }, [])
 
   const handleAbout = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,7 +62,7 @@ function About() {
       setter({ minimise: false, open: false })
     }
     setFocus(Number(id))
-    console.log(focus)
+    console.log("click")
   }
 
   const handleStart = () => {
@@ -55,9 +73,22 @@ function About() {
     setStart(false)
   })
 
+  function handleStartDrag(idx: number) {
+    if(pageRef.current) {
+      pageRef.current.style.userSelect = "none"
+    }
+    setFocus(idx)
+  }
+
+  function handleEndDrag() {
+    if(pageRef.current) {
+      pageRef.current.style.userSelect = "default"
+    }
+  }
+
   return (
-    <main className="about-container">
-      <header>
+    <main ref={pageRef} className="about-container">
+      <header ref={titleRef}>
         {titleArray.map((letter, idx) => (
           <h1 key={`${letter}-${idx}`}>{letter}</h1>
         ))}
@@ -91,7 +122,11 @@ function About() {
                 focus={focus}
                 onHandleAbout={handleAbout}
                 title={"brief-introduction-inprogress.txt"}
-                content={"My name is Leo Walton-van den Brink -- I'm an artist from New Zealand. Welcome to my website, I'll be posting all my art, websites, and anything else I fancy here. This is a place for me to just make what I want. As someone who was born in a family of artists, I have been cursed to never really have any money, but at least I can make things look nice. Music is also a huge passion of mine: and if all is going well, you'll be able to find a little music making website here (still in development)."} />
+                content={"My name is Leo Walton-van den Brink -- I'm an artist from New Zealand. Welcome to my website, I'll be posting all my art, websites, and anything else I fancy here. This is a place for me to just make what I want. As someone who was born in a family of artists, I have been cursed to never really have any money, but at least I can make things look nice. Music is also a huge passion of mine: and if all is going well, you'll be able to find a little music making website here (still in development)."}
+                position={position.about1}
+                handleStartDrag={handleStartDrag}
+                handleEndDrag={handleEndDrag}
+              />
             }
 
             {about2.open && !about2.minimise &&
@@ -101,7 +136,11 @@ function About() {
                 focus={focus}
                 onHandleAbout={handleAbout}
                 title={"history_01_final_final.txt"}
-                content={"I started learning web development in The Netherlands, learning some python, then moving onto javascript, css, html, and eventually typescript and vue. After about 9 months of study, I moved back to New Zealand and finished my study at Dev Academy Aotearoa, with react. Learning became a huge focus for me during this time, learning everything: my music, my art, my coding, and also just life skills like cooking, house, and car maintenance - all of it."} />
+                content={"I started learning web development in The Netherlands, learning some python, then moving onto javascript, css, html, and eventually typescript and vue. After about 9 months of study, I moved back to New Zealand and finished my study at Dev Academy Aotearoa, with react. Learning became a huge focus for me during this time, learning everything: my music, my art, my coding, and also just life skills like cooking, house, and car maintenance - all of it."}
+                position={position.about2}
+                handleStartDrag={handleStartDrag}
+                handleEndDrag={handleEndDrag}
+              />
             }
 
             {about3.open && !about3.minimise &&
@@ -111,7 +150,11 @@ function About() {
                 focus={focus}
                 onHandleAbout={handleAbout}
                 title={"extra_stuff_03.txt"}
-                content={"I'm from the Kapiti Coast and Wellington region, love nature, and retro colours. Big Socialist, and advocate for humanity: which means, fuck Trump and the right, Capitalism is awful. Let's just try to love each other, please."} />
+                content={"I'm from the Kapiti Coast and Wellington region, love nature, and retro colours. Big Socialist, and advocate for humanity: which means, fuck Trump and the right, Capitalism is awful. Let's just try to love each other, please."}
+                position={position.about3}
+                handleStartDrag={handleStartDrag}
+                handleEndDrag={handleEndDrag}
+              />
             }
           </div>
         </div>
